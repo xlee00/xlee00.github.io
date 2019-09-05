@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>非对称加密原理解析 | Xlee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="非对称加密原理解析">
+<meta name="keywords" content="加密,非对称,原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="非对称加密原理解析">
+<meta property="og:url" content="https//xlee00.github.io/2017/05/09/非对称加密原理解析/index.html">
+<meta property="og:site_name" content="Xlee">
+<meta property="og:description" content="非对称加密原理解析">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="/2017/05/09/非对称加密原理解析/digital_signature.jpg">
+<meta property="og:image" content="/2017/05/09/非对称加密原理解析/digital_certificate.jpg">
+<meta property="og:image" content="/2017/05/09/非对称加密原理解析/digital_certificate_princeple.jpg">
+<meta property="og:image" content="/2017/05/09/非对称加密原理解析/nesting.jpg">
+<meta property="og:image" content="/2017/05/09/非对称加密原理解析/certmgr.msc.jpg">
+<meta property="og:image" content="/2017/05/09/非对称加密原理解析/mac_keychain.jpg">
+<meta property="og:updated_time" content="2019-07-29T08:36:57.087Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="非对称加密原理解析">
+<meta name="twitter:description" content="非对称加密原理解析">
+<meta name="twitter:image" content="/2017/05/09/非对称加密原理解析/digital_signature.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Xlee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Xlee</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">与世界分享你的知识、经验和见解</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https//xlee00.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-非对称加密原理解析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/09/非对称加密原理解析/" class="article-date">
+  <time datetime="2017-05-09T03:43:21.000Z" itemprop="datePublished">2017-05-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/科技/">科技</a>►<a class="article-category-link" href="/categories/科技/Others/">Others</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      非对称加密原理解析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>非对称加密原理解析</p>
+<a id="more"></a>
+
+<blockquote>
+<p>作者：<a href="http://blog.csdn.net/wzzvictory" target="_blank" rel="noopener">wangzz</a><br>原文地址：<a href="http://blog.csdn.net/wzzvictory/article/details/9015155" target="_blank" rel="noopener">http://blog.csdn.net/wzzvictory/article/details/9015155</a><br>转载请注明出处<br>如果觉得文章对你有所帮助，请通过留言或关注微信公众帐号wangzzstrive来支持我，谢谢！</p>
+</blockquote>
+<h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><h3 id="密钥"><a href="#密钥" class="headerlink" title="密钥"></a>密钥</h3><p>密钥，一般就是一个字符串或数字，在加密或者解密时传递给加密或解密算法，以使算法能够正确对明文加密或者对密文解密。</p>
+<h3 id="加密算法分类"><a href="#加密算法分类" class="headerlink" title="加密算法分类"></a>加密算法分类</h3><p>这世上存在两种加密算法：对称加密(symmetric cryptography)和非对称加密(asymmetric cryptography)。<br>也就是说，你想进行加解密操作的时候需要具备两样东西：秘钥和加解密算法。</p>
+<h4 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h4><p>对称加密算法的特点是加密使用的密钥和解密使用的密钥是相同的。也就是说，加密和解密都是使用的同一个密钥。因此对称加密算法要保证安全性的话，密钥自然要做好保密，只能让使用的人知道，不能对外公开。</p>
+<h4 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h4><p>在非对称加密算法中，有公钥和私钥两种密钥，其中，公钥是公开的，不需要保密，私钥由个人持有，必须妥善保管和注意保密。加密和解密使用两种不同的密钥，是它得名的原因。估计大家都听说过RSA，这就是一种常见的，应用很广的非对称加密算法。</p>
+<h2 id="非对称加密方法"><a href="#非对称加密方法" class="headerlink" title="非对称加密方法"></a>非对称加密方法</h2><h3 id="公钥私钥的使用原则"><a href="#公钥私钥的使用原则" class="headerlink" title="公钥私钥的使用原则"></a>公钥私钥的使用原则</h3><ol>
+<li>每一个公钥都对应一个私钥。</li>
+<li>密钥对中，让大家都知道的是公钥，不告诉大家，只有自己知道的，是私钥。</li>
+<li>如果用其中一个密钥加密数据，则只有对应的那个密钥才可以解密。</li>
+<li>如果用其中一个密钥可以进行解密数据，则该数据必然是对应的那个密钥进行的加密。</li>
+</ol>
+<p>非对称密钥密码的主要应用就是公钥加密和公钥认证。</p>
+<h3 id="公钥加密、解密"><a href="#公钥加密、解密" class="headerlink" title="公钥加密、解密"></a>公钥加密、解密</h3><p>加密的目的，是不希望第三者看到当前两个通讯用户的通讯内容。</p>
+<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>A（客户）想给B（服务器）发送一段文字，但是不想让别人看到，因此想使用非对称加密方法来加密这段文字，当然，B需要有一对公钥和私钥：</p>
+<ol>
+<li>B将他的公钥发送给A</li>
+<li>A用B给他的公钥加密这段文字，然后传给B</li>
+<li>B用他的私钥解密A发过来的消息，这里要强调的是，只要B的私钥不泄露，这封信就是安全的，即使落在别人手里，也无法解密。</li>
+</ol>
+<p>通过这几步，B就能成功收到A发送的信息，同时又达到了保密的目的。</p>
+<h4 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h4><p>如果B想给A回信息，就简单的多了：</p>
+<ol>
+<li>B将要回复的信息通过自己的私钥加密，然后传送给A</li>
+<li>A用B之前给他的公钥解出这份信息。</li>
+</ol>
+<h3 id="公钥认证"><a href="#公钥认证" class="headerlink" title="公钥认证"></a>公钥认证</h3><p>在公钥加密、解密里面描述的通讯过程看似简单，但想想这个问题：在公钥加密、解密过程中，A怎么B给他的回信在传递过程中，有没有被人修改？这就涉及到数字签名的概念。</p>
+<h4 id="数字签名（digital-signature）"><a href="#数字签名（digital-signature）" class="headerlink" title="数字签名（digital signature）"></a>数字签名（digital signature）</h4><p>微软官方给出的定义：“数字签名”是指可以添加到文件的电子安全标记。使用它可以验证文件的发行者以及帮助验证文件自被数字签名后是否发生更改。</p>
+<h5 id="数字签名原理"><a href="#数字签名原理" class="headerlink" title="数字签名原理"></a>数字签名原理</h5><p>要达到这个目的，一般是对信息做一个hash计算得到一个hash值，注意，这个过程是不可逆的，也就是说无法通过hash值得出原来的信息内容。在把信息发送出去时，把这个hash值加密后做为一个签名和信息一起发出去。 接收方在收到信息后，会重新计算信息的hash值，并和信息所附带的hash值(解密后)进行对比，如果一致，就说明信息的内容没有被修改过，因为这里hash计算可以保证不同的内容一定会得到不同的hash值，所以只要内容一被修改，根据信息内容计算的hash值就会变化。当然，不怀好意的人也可以修改信息内容的同时也修改hash值，从而让它们可以相匹配，为了防止这种情况，hash值一般都会加密后(也就是签名)再和信息一起发送。</p>
+<h5 id="数字签名使用方式"><a href="#数字签名使用方式" class="headerlink" title="数字签名使用方式"></a>数字签名使用方式</h5><p>下面通过例子来说明这个过程：<br>B给A回信时，采用了数字签名的方式</p>
+<ol>
+<li>B先用hash函数，生成信件的摘要(digest)</li>
+<li>B使用自己的私钥，对这个摘要加密，这样就生成了数字签名(signature)</li>
+<li>B将这个签名附在要回复的信息后面，一起发给A</li>
+<li>A收到B的信息后，取下数字签名，并通过B的公钥解密，得到信件的摘要信息</li>
+<li>A在对B发送的信息本身使用B指定的hash函数，将得到的结果同上一步解密得到的摘要进行对比，如果两者一致，就说明B发过来的信息未被修改过。</li>
+</ol>
+<h4 id="数字证书（Digital-Certificate）"><a href="#数字证书（Digital-Certificate）" class="headerlink" title="数字证书（Digital Certificate）"></a>数字证书（Digital Certificate）</h4><p>问题就这样结束了吗？远没有，试想，虽然A确定了B回给他的信息是未修改过的，但是怎么确定给他回信息的就是B？如果有不怀好意的C把A保存的B的公钥偷偷换成自己的，并冒用B的名义给A发信息呢？</p>
+<p>要解决这个问题，A只要能确定自己持有的公钥到底是不是B的就行了，这就需要用到数字证书。</p>
+<p>数字证书是用来验证公钥所属的用户身份。在日常生活中，如果我们要验证一个人的身份，通常的做法是查看他的身份证。我们信任身份证颁发机构即政府机构的公信力，因此只要验证一个人的身份证不是伪造的，我们就相信这个人的身份和身份证上所描述的是一致的。</p>
+<p>数字证书就是一个人或者组织在网络世界中的身份证，其发证机关是证书管理机构(certificate authority,CA)。CA用自己的私钥对用户的身份信息(主要是用户名和该用户的公钥)进行签名，该签名和用户的身份信息一起就形成了证书。</p>
+<h5 id="数字证书的构成"><a href="#数字证书的构成" class="headerlink" title="数字证书的构成"></a>数字证书的构成</h5><ul>
+<li>证书的发布机构（Issuer）<br>指出是什么机构发布的这个证书，也就是指明这个证书是哪个证书中心（certificate authority，简称CA）发布的的(只是创建证书，不是指证书的使用者)。</li>
+<li>证书的有效期（Valid from , Valid to）<br>也就是证书的有效时间，或者说证书的使用期限。 过了有效期限，证书就会作废，不能使用了。</li>
+<li>公钥 （Public key）<br>这个我们在前面介绍公钥密码体制时介绍过，公钥是用来对消息进行加密解密的，是很长的一串数字。</li>
+<li>证书所有者（Subject）<br>这个证书是发布给谁的，或者说证书的所有者，一般是某个人或者某个公司名称、机构的名称、公司网站的网址等。</li>
+<li>签名所使用的算法 （Signature algorithm）<br>指的这个数字证书的数字签名所使用的加密算法，这样就可以使用证书发布机构的证书里面的公钥，根据这个算法对指纹进行解密。指纹的加密结果就是数字签名</li>
+<li>指纹以及指纹算法 （Thumbprint, Thumbprint algorithm）<br>这个是用来保证证书的完整性的，也就是说确保证书没有被修改过。 其原理就是在发布证书时，发布者根据指纹算法(一个hash算法)计算整个证书的hash值(指纹)并和证书放在一起，使用者在打开证书时，自己也根据指纹算法计算一下证书的hash值(指纹)，如果和刚开始的值对得上，就说明证书没有被修改过，因为证书的内容被修改后，根据证书的内容计算的出的hash值(指纹)是会变化的。</li>
+</ul>
+<h5 id="数字证书的生成过程"><a href="#数字证书的生成过程" class="headerlink" title="数字证书的生成过程"></a>数字证书的生成过程</h5><ol>
+<li>使用数字证书申请者的身份信息生成数字签名<br><img src="/2017/05/09/非对称加密原理解析/digital_signature.jpg" alt="使用数字证书申请者的身份信息生成数字签名"></li>
+<li>将证书申请者的身份信息和数字签名一起组成数字证书<br><img src="/2017/05/09/非对称加密原理解析/digital_certificate.jpg" alt="将证书申请者的身份信息和数字签名一起组成数字证书"></li>
+</ol>
+<h5 id="数字证书原理"><a href="#数字证书原理" class="headerlink" title="数字证书原理"></a>数字证书原理</h5><p>有了数字证书以后，A和想跟B通信，就可以通过B的数字证书来获取B的公钥，以达到验证自己手中的公钥到底是不是B的目的。过程是这样的：</p>
+<ol>
+<li>B给A回信的时候，在信息后面附上了自己的数字证书</li>
+<li>A收到B的回信以后，会取出附带的数字证书，并读取证书中的发布机构（Issuer），然后从操作系统的受信任证书机构列表中查找该证书办发机构的公钥，如果找不到，说明这个证书颁发机构是个不受信任的，B发过来的信息当然也是不安全的</li>
+<li>使用上一步取到的证书颁发机构的公钥，解出数字证书，得到可能是B的用户信息和数字签名</li>
+<li>A通过证书中指定的加密算法对可能是B的用户信息进行hash加密</li>
+<li>加密后的结果和证书中解出的数字签名进行对比，如果相同，就说明这份用户信息确实是B的，也就是说用户信息中包含的公钥确实是B的</li>
+</ol>
+<p>这样就验证了B身份的真实性。</p>
+<p>下图很形象的表示了这个过程：</p>
+<p><img src="/2017/05/09/非对称加密原理解析/digital_certificate_princeple.jpg" alt="数字证书原理"></p>
+<h5 id="证书发布中心（CA）的公钥的嵌套验证"><a href="#证书发布中心（CA）的公钥的嵌套验证" class="headerlink" title="证书发布中心（CA）的公钥的嵌套验证"></a>证书发布中心（CA）的公钥的嵌套验证</h5><p>这里有一个有趣的问题，用户A使用证书机构的公钥来验证用户B的数字证书，但如果A和B使用的证书认证中心（CA）不同怎么办呢？由于证书认证中心可以通过另外一个更高级别的认证中心对该证书机构的公钥颁发一个证书，这样形成了一个公钥证书的嵌套循环，该循环的终点就是根证书机构。根证书机构较少，其公钥可以通过安全的方式发布，如通过USB拷贝、书面文件当面移交。如此依赖，A就必须从B的CA的树形结构底部开始，从底层CA往上层CA查询，一直到找到共同的信任CA为止。<br>整个过程如下图所示：</p>
+<p><img src="/2017/05/09/非对称加密原理解析/nesting.jpg" alt="公钥的嵌套验"></p>
+<h5 id="证书发布机构"><a href="#证书发布机构" class="headerlink" title="证书发布机构"></a>证书发布机构</h5><h6 id="谁可以成为证书发布机构"><a href="#谁可以成为证书发布机构" class="headerlink" title="谁可以成为证书发布机构"></a>谁可以成为证书发布机构</h6><p>到这里，你可能会想，那我们自己就不能发布证书吗？就一定要花钱去申请？<br>当然不是，我们自己也可以成立证书发布机构，但是需要通过一些安全认证等等，只是有点麻烦。另外，如果数字证书只是要在公司内部使用，公司可以自己给自己生成一个证书，在公司的所有机器上把这个证书设置为操作系统信任的证书发布机构的证书(这句话仔细看清楚，有点绕口)，这样以后公司发布的证书在公司内部的所有机器上就可以通过验证了(在发布证书时，把这些证书的Issuer(发布机构)设置为我们自己的证书发布机构的证书的Subject(主题)就可以了)。但是这只限于内部应用，因为只有我们公司自己的机器上设置了信任我们自己这个所谓的证书发布机构，而其它机器上并没有事先信任我们这个证书发布机构，所以在其它机器上，我们发布的证书就无法通过安全验证。</p>
+<p>我们自己可以去注册一家公司来专门给别人发布证书，但是很明显，我们自己的专门发布证书的公司是不会被那些国际上的权威机构认可的，人家怎么知道你是不是个狗屁皮包公司？因此微软（或其它操作系统提供商）在它的操作系统中，并不会信任我们这个证书发布机构，当应用程序在检查证书的合法信的时候，一看证书的发布机构并不是操作系统所信任的发布机构，就会抛出错误信息。也就是说windows操作系统中不会预先安装好我们这个证书发布机构的证书，不信任我们这个发布机构。</p>
+<h6 id="不受信任的证书发布机构的危害"><a href="#不受信任的证书发布机构的危害" class="headerlink" title="不受信任的证书发布机构的危害"></a>不受信任的证书发布机构的危害</h6><p>为什么一个证书发布机构受不受信任这么重要？我们举个例子。假设我们开了一个狗屁公司来为别人发布证书，并且我和微软有一腿，微软在他们的操作系统中把我设置为了受信任的证书发布机构。现在如果有个小公司叫hisunsray花了10块钱让我为他们公司申请了一个证书，并且公司慢慢壮大，证书的应用范围也越来越广。然后有个奸商的公司baidu想冒充hisunsray，于是给了我￥10000，让我为他们颁布一个证书，但是证书的名字(Subject)要写hisunsray，假如我为了这￥10000，真的把证书给了他们，那么他们以后就可以使用这个证书来冒充hisunsray了。</p>
+<h5 id="如何查看数字证书"><a href="#如何查看数字证书" class="headerlink" title="如何查看数字证书"></a>如何查看数字证书</h5><p>我们的操作系统中会预先安装好一些证书发布机构的证书，我们可以通过证书管理器进行证书的增、删操作，下面介绍如何找到它们。</p>
+<h6 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h6><p>开始菜单-&gt;运行，输入certmgr.msc，回车</p>
+<p><img src="/2017/05/09/非对称加密原理解析/certmgr.msc.jpg" alt="Window_证书管理"></p>
+<h6 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h6><p>打开keychain，选择钥匙串中的系统根证书，种类中的证书即可看到下图所示的收信人证书发布机构列表：<br><img src="/2017/05/09/非对称加密原理解析/mac_keychain.jpg" alt="Mac_证书管理"><br>当然，以上这些内容，只涉及到非对称加密方法的最基础原理，实际使用的时候肯定复杂很多，有兴趣大家可以私下研究。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https//xlee00.github.io/2017/05/09/非对称加密原理解析/" data-id="ck06iyq2900a8xgn5zzf3s0um" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密/">加密</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原理/">原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/非对称/">非对称</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/09/centos下安装supervisor/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          centos下安装supervisor
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/09/对称加密和非对称加密介绍和区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">对称加密和非对称加密介绍和区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/">人文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/人文其它/">人文其它</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/">科技</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Wordpress/">Wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/svn/">svn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/其它/">其它</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/7z/" style="font-size: 10px;">7z</a> <a href="/tags/Android-TV/" style="font-size: 10px;">Android TV</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Google-billing/" style="font-size: 10px;">Google billing</a> <a href="/tags/Google-payment/" style="font-size: 10px;">Google payment</a> <a href="/tags/Gz/" style="font-size: 10px;">Gz</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/tags/OpenVPN/" style="font-size: 10px;">OpenVPN</a> <a href="/tags/Rar/" style="font-size: 10px;">Rar</a> <a href="/tags/Raspberry/" style="font-size: 15px;">Raspberry</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ScrollBar/" style="font-size: 10px;">ScrollBar</a> <a href="/tags/Scrollbar/" style="font-size: 10px;">Scrollbar</a> <a href="/tags/SparseArray/" style="font-size: 12.5px;">SparseArray</a> <a href="/tags/SparseArrayCompat/" style="font-size: 10px;">SparseArrayCompat</a> <a href="/tags/Supervisor/" style="font-size: 10px;">Supervisor</a> <a href="/tags/Tar/" style="font-size: 10px;">Tar</a> <a href="/tags/Tar-gz/" style="font-size: 10px;">Tar.gz</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Unrar/" style="font-size: 10px;">Unrar</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/WIFI/" style="font-size: 10px;">WIFI</a> <a href="/tags/WPS/" style="font-size: 10px;">WPS</a> <a href="/tags/War/" style="font-size: 10px;">War</a> <a href="/tags/Wordpress/" style="font-size: 10px;">Wordpress</a> <a href="/tags/Xz/" style="font-size: 10px;">Xz</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/Zip/" style="font-size: 10px;">Zip</a> <a href="/tags/aar/" style="font-size: 10px;">aar</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/billing-test/" style="font-size: 10px;">billing test</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/drawable/" style="font-size: 10px;">drawable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/egrep/" style="font-size: 10px;">egrep</a> <a href="/tags/fgrep/" style="font-size: 10px;">fgrep</a> <a href="/tags/git/" style="font-size: 17.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/keystore/" style="font-size: 10px;">keystore</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/no-permission/" style="font-size: 10px;">no_permission</a> <a href="/tags/notifyItemChanged/" style="font-size: 10px;">notifyItemChanged</a> <a href="/tags/response/" style="font-size: 10px;">response</a> <a href="/tags/screenshot/" style="font-size: 10px;">screenshot</a> <a href="/tags/sspanel/" style="font-size: 10px;">sspanel</a> <a href="/tags/state/" style="font-size: 10px;">state</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/svn/" style="font-size: 12.5px;">svn</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/不对称/" style="font-size: 10px;">不对称</a> <a href="/tags/乱码/" style="font-size: 10px;">乱码</a> <a href="/tags/代码仓库/" style="font-size: 10px;">代码仓库</a> <a href="/tags/位置/" style="font-size: 10px;">位置</a> <a href="/tags/信息/" style="font-size: 10px;">信息</a> <a href="/tags/修改文件名/" style="font-size: 10px;">修改文件名</a> <a href="/tags/出栈/" style="font-size: 10px;">出栈</a> <a href="/tags/制作/" style="font-size: 10px;">制作</a> <a href="/tags/加密/" style="font-size: 12.5px;">加密</a> <a href="/tags/博客/" style="font-size: 17.5px;">博客</a> <a href="/tags/原理/" style="font-size: 12.5px;">原理</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/启动方式/" style="font-size: 10px;">启动方式</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/回退/" style="font-size: 10px;">回退</a> <a href="/tags/多个图标/" style="font-size: 10px;">多个图标</a> <a href="/tags/大小写/" style="font-size: 10px;">大小写</a> <a href="/tags/字体/" style="font-size: 10px;">字体</a> <a href="/tags/字符编码/" style="font-size: 10px;">字符编码</a> <a href="/tags/客户端/" style="font-size: 10px;">客户端</a> <a href="/tags/对称/" style="font-size: 10px;">对称</a> <a href="/tags/库/" style="font-size: 10px;">库</a> <a href="/tags/快捷方式/" style="font-size: 10px;">快捷方式</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/截屏/" style="font-size: 10px;">截屏</a> <a href="/tags/批量/" style="font-size: 10px;">批量</a> <a href="/tags/显示隐藏/" style="font-size: 10px;">显示隐藏</a> <a href="/tags/更改icon/" style="font-size: 10px;">更改icon</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/模版/" style="font-size: 10px;">模版</a> <a href="/tags/注释头/" style="font-size: 10px;">注释头</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/滚动条/" style="font-size: 10px;">滚动条</a> <a href="/tags/监听/" style="font-size: 10px;">监听</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/签名/" style="font-size: 10px;">签名</a> <a href="/tags/系统开发/" style="font-size: 10px;">系统开发</a> <a href="/tags/编码转换/" style="font-size: 10px;">编码转换</a> <a href="/tags/自定义/" style="font-size: 10px;">自定义</a> <a href="/tags/软键盘/" style="font-size: 10px;">软键盘</a> <a href="/tags/过滤/" style="font-size: 10px;">过滤</a> <a href="/tags/运营商定制/" style="font-size: 10px;">运营商定制</a> <a href="/tags/运行慢/" style="font-size: 10px;">运行慢</a> <a href="/tags/门字不正确/" style="font-size: 10px;">门字不正确</a> <a href="/tags/非对称/" style="font-size: 10px;">非对称</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/05/Android-in-app-billing-Clear-purchase-state-of-sku-android-test-purchased/">Android in-app billing: Clear purchase state of sku android.test.purchased</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/05/Hexo-YAMLException/">Hexo YAMLException</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/29/Upload-apk-to-Google-Play-Console/">Upload apk to Google Play Console</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/27/Raspberrypi-auto-update-ip-to-github/">Raspberrypi auto update ip to github</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/26/svn回退版本-取消修改/">svn回退版本/取消修改</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Xlee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

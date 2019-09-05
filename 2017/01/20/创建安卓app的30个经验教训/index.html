@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>创建安卓app的30个经验教训 | Xlee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这个世界上有两种人－从经验教训中学习的人以及听从别人建议的人。这里是我一路走来学到的一些东西，分享给大家">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建安卓app的30个经验教训">
+<meta property="og:url" content="https//xlee00.github.io/2017/01/20/创建安卓app的30个经验教训/index.html">
+<meta property="og:site_name" content="Xlee">
+<meta property="og:description" content="这个世界上有两种人－从经验教训中学习的人以及听从别人建议的人。这里是我一路走来学到的一些东西，分享给大家">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/800/1*5fIjH9lyqhLI-MbHz-zbYg.gif">
+<meta property="og:updated_time" content="2019-07-29T08:36:57.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="创建安卓app的30个经验教训">
+<meta name="twitter:description" content="这个世界上有两种人－从经验教训中学习的人以及听从别人建议的人。这里是我一路走来学到的一些东西，分享给大家">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/800/1*5fIjH9lyqhLI-MbHz-zbYg.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Xlee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Xlee</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">与世界分享你的知识、经验和见解</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https//xlee00.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-创建安卓app的30个经验教训" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/20/创建安卓app的30个经验教训/" class="article-date">
+  <time datetime="2017-01-20T07:08:00.000Z" itemprop="datePublished">2017-01-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/科技/">科技</a>►<a class="article-category-link" href="/categories/科技/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      创建安卓app的30个经验教训
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个世界上有两种人－从经验教训中学习的人以及听从别人建议的人。这里是我一路走来学到的一些东西，分享给大家</p>
+<a id="more"></a>
+
+<h1 id="创建安卓app的30个经验教训"><a href="#创建安卓app的30个经验教训" class="headerlink" title="创建安卓app的30个经验教训"></a>创建安卓app的30个经验教训</h1><blockquote>
+<p>来自：<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0218/3978.html" target="_blank" rel="noopener">http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0218/3978.html</a></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*5fIjH9lyqhLI-MbHz-zbYg.gif" alt="Amazing design"></p>
+<p>Amazing design from <a href="https://ramotion.com" target="_blank" rel="noopener">https://ramotion.com</a></p>
+<p>这个世界上有两种人－从经验教训中学习的人以及听从别人建议的人。这里是我一路走来学到的一些东西，分享给大家：</p>
+<ol>
+<li>在添加任何第三方party之前，请三思：这真的是一个成熟的项目吗？</li>
+<li>如果一个东西用户看不到，就<a href="http://riggaroo.co.za/optimizing-layouts-in-android-reducing-overdraw/" target="_blank" rel="noopener">不要绘制它</a>！</li>
+<li>除非真的需要，否则别使用数据库；</li>
+<li>达到65k方法数限制来的非常快，真的，非常快！不过 <a href="https://medium.com/@rotxed/dex-skys-the-limit-no-65k-methods-is-28e6cb40cf71" target="_blank" rel="noopener">multidexing</a> 可以拯救你;</li>
+<li><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="noopener">RxJava</a> 是 <a href="https://medium.com/swlh/party-tricks-with-rxjava-rxandroid-retrolambda-1b06ed7cd29c" target="_blank" rel="noopener">AsyncTasks 以及其它杂碎</a>的最佳替代者；</li>
+<li><a href="http://square.github.io/retrofit/" target="_blank" rel="noopener">Retrofit</a> 可能是现在最佳的网络请求库；</li>
+<li>使用 <a href="https://medium.com/android-news/retrolambda-on-android-191cc8151f85" target="_blank" rel="noopener">Retrolambda</a>来简化你的代码；(个人不推荐)</li>
+<li>把 <a href="https://medium.com/swlh/party-tricks-with-rxjava-rxandroid-retrolambda-1b06ed7cd29c" target="_blank" rel="noopener">RxJava 和 Retrofit 以及 Retrolambda</a> 结合起来会让你酷炸天！</li>
+<li>我使用 <a href="https://github.com/greenrobot/EventBus" target="_blank" rel="noopener">EventBus</a> 而且它也很好，但是我并不会用太多，因为这样代码库会变得凌乱；</li>
+<li><a href="https://medium.com/the-engineering-team/package-by-features-not-layers-2d076df1964d" target="_blank" rel="noopener">包名按照功能来，而不是按分层来</a>;</li>
+<li>把所有东西都移到 application thread之外；</li>
+<li><a href="http://developer.android.com/tools/help/layoutopt.html" target="_blank" rel="noopener">lint</a> 可以帮助你优化布局与布局树，这样你就能识别出那些可能已经被移除的冗余的View；</li>
+<li>如果你在使用gradle，使用一切<a href="https://medium.com/the-engineering-team/speeding-up-gradle-builds-619c442113cb" target="_blank" rel="noopener">可能</a>的方式去加速它；</li>
+<li>对builds做<a href="https://medium.com/the-engineering-team/speeding-up-gradle-builds-619c442113cb" target="_blank" rel="noopener">profile reports</a>，以便知道什么占据了编译时间；</li>
+<li>使用一个 <a href="http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/" target="_blank" rel="noopener">有名的</a> 架构；</li>
+<li><a href="http://stackoverflow.com/a/67500/794485" target="_blank" rel="noopener">测试时比较花时间，但是一旦你找到诀窍它可以比不使用测试更快、更健壮</a>;</li>
+<li>使用 <a href="http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/" target="_blank" rel="noopener">依赖注入</a> 让你的app更模块化，从而更易于测试；</li>
+<li>收听 <a href="http://fragmentedpodcast.com/" target="_blank" rel="noopener">fragmented podcast</a> 将会让你受益；</li>
+<li><a href="https://www.reddit.com/r/Android/comments/2hywu9/google_play_only_one_strike_is_needed_to_ruin_you/" target="_blank" rel="noopener">千万别用私人邮箱作为你安卓市场的发布者账号</a>;</li>
+<li>总是使用<a href="http://developer.android.com/training/keyboard-input/style.html" target="_blank" rel="noopener">恰当的</a>输入类型；</li>
+<li>Use analytics to find usage patterns and isolate bugs;</li>
+<li>关注最新的 <a href="http://android-arsenal.com/" target="_blank" rel="noopener">libraries</a>（使用<a href="https://github.com/cesarferreira/dryrun" target="_blank" rel="noopener">dryrun</a> 来快速查看它们的的效果）；</li>
+<li>你的service应该做你所需的事情，并且尽快死去；</li>
+<li>使用 <a href="http://developer.android.com/reference/android/accounts/AccountManager.html" target="_blank" rel="noopener">Account Manager</a> 来提示登录用户名和邮箱地址；</li>
+<li>使用CI（持续集成）来构建和发布你的beta和产品apk；</li>
+<li>不要运行自己的CI server，维护server是费时的事情，因为磁盘空间，安全问题，更新server以防止SSL攻击等等原因。使用circleci, travis 或者 shippable, 它们便宜，而且你也可以少担心一些事情；</li>
+<li><a href="https://github.com/Triple-T/gradle-play-publisher" target="_blank" rel="noopener">Automate your deployments to the playstore</a>;</li>
+<li>如果一个library很大而你只需要使用其中的一部分功能，你应该寻找一个更小的来替代（比如依靠proguard ）；</li>
+<li>不要使用多于实际需要的module。从零开始编译一个module或者仅仅是检查上个module是否最新所需要的时间几乎是加载 binary .jar/.aar依赖的4倍以上；</li>
+<li><a href="http://developer.android.com/tools/help/vector-asset-studio.html" target="_blank" rel="noopener">开始考虑用SVG来替代PNG</a> ；</li>
+<li>Make library abstraction classes, it’ll be way easier to switch to a new library if you only need to switch in one place (e.g.AppLogger.d(“message”) can contain Log.d(TAG, message) and later realise that <a href="https://github.com/JakeWharton/timber" target="_blank" rel="noopener">Timber.d(message)</a> is a better option);</li>
+<li>监控你的连接情况以及连接类型（wifi之下更新更多数据？）；</li>
+<li>监控你的电源和电量（在充电的时候更新更多的数据？电量低的时候暂停更新？）；</li>
+<li>一个用户界面就如一个笑话那样，如果你需要解释，那么证明它并不够好；</li>
+<li><a href="https://twitter.com/danlew42/status/677151453476032512" target="_blank" rel="noopener">Tests are great for performance: Write slow (but correct) implementation then verify optimizations don’t break anything with tests.</a></li>
+</ol>
+<blockquote>
+<p>英文原文：<a href="https://medium.com/@cesarmcferreira/building-android-apps-30-things-that-experience-made-me-learn-the-hard-way-313680430bf9#.6d0cbhkxa" target="_blank" rel="noopener">Building Android Apps — 30 things that experience made me learn the hard way。 </a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https//xlee00.github.io/2017/01/20/创建安卓app的30个经验教训/" data-id="ck06iypxk0023xgn5xynt74tt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/20/Android-studio-import-aar/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android studio import aar
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/20/常用库/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">常用库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/">人文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/人文其它/">人文其它</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/">科技</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Wordpress/">Wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/svn/">svn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/其它/">其它</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/7z/" style="font-size: 10px;">7z</a> <a href="/tags/Android-TV/" style="font-size: 10px;">Android TV</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Google-billing/" style="font-size: 10px;">Google billing</a> <a href="/tags/Google-payment/" style="font-size: 10px;">Google payment</a> <a href="/tags/Gz/" style="font-size: 10px;">Gz</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/tags/OpenVPN/" style="font-size: 10px;">OpenVPN</a> <a href="/tags/Rar/" style="font-size: 10px;">Rar</a> <a href="/tags/Raspberry/" style="font-size: 15px;">Raspberry</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ScrollBar/" style="font-size: 10px;">ScrollBar</a> <a href="/tags/Scrollbar/" style="font-size: 10px;">Scrollbar</a> <a href="/tags/SparseArray/" style="font-size: 12.5px;">SparseArray</a> <a href="/tags/SparseArrayCompat/" style="font-size: 10px;">SparseArrayCompat</a> <a href="/tags/Supervisor/" style="font-size: 10px;">Supervisor</a> <a href="/tags/Tar/" style="font-size: 10px;">Tar</a> <a href="/tags/Tar-gz/" style="font-size: 10px;">Tar.gz</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Unrar/" style="font-size: 10px;">Unrar</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/WIFI/" style="font-size: 10px;">WIFI</a> <a href="/tags/WPS/" style="font-size: 10px;">WPS</a> <a href="/tags/War/" style="font-size: 10px;">War</a> <a href="/tags/Wordpress/" style="font-size: 10px;">Wordpress</a> <a href="/tags/Xz/" style="font-size: 10px;">Xz</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/Zip/" style="font-size: 10px;">Zip</a> <a href="/tags/aar/" style="font-size: 10px;">aar</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/billing-test/" style="font-size: 10px;">billing test</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/drawable/" style="font-size: 10px;">drawable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/egrep/" style="font-size: 10px;">egrep</a> <a href="/tags/fgrep/" style="font-size: 10px;">fgrep</a> <a href="/tags/git/" style="font-size: 17.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/keystore/" style="font-size: 10px;">keystore</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/no-permission/" style="font-size: 10px;">no_permission</a> <a href="/tags/notifyItemChanged/" style="font-size: 10px;">notifyItemChanged</a> <a href="/tags/response/" style="font-size: 10px;">response</a> <a href="/tags/screenshot/" style="font-size: 10px;">screenshot</a> <a href="/tags/sspanel/" style="font-size: 10px;">sspanel</a> <a href="/tags/state/" style="font-size: 10px;">state</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/svn/" style="font-size: 12.5px;">svn</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/不对称/" style="font-size: 10px;">不对称</a> <a href="/tags/乱码/" style="font-size: 10px;">乱码</a> <a href="/tags/代码仓库/" style="font-size: 10px;">代码仓库</a> <a href="/tags/位置/" style="font-size: 10px;">位置</a> <a href="/tags/信息/" style="font-size: 10px;">信息</a> <a href="/tags/修改文件名/" style="font-size: 10px;">修改文件名</a> <a href="/tags/出栈/" style="font-size: 10px;">出栈</a> <a href="/tags/制作/" style="font-size: 10px;">制作</a> <a href="/tags/加密/" style="font-size: 12.5px;">加密</a> <a href="/tags/博客/" style="font-size: 17.5px;">博客</a> <a href="/tags/原理/" style="font-size: 12.5px;">原理</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/启动方式/" style="font-size: 10px;">启动方式</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/回退/" style="font-size: 10px;">回退</a> <a href="/tags/多个图标/" style="font-size: 10px;">多个图标</a> <a href="/tags/大小写/" style="font-size: 10px;">大小写</a> <a href="/tags/字体/" style="font-size: 10px;">字体</a> <a href="/tags/字符编码/" style="font-size: 10px;">字符编码</a> <a href="/tags/客户端/" style="font-size: 10px;">客户端</a> <a href="/tags/对称/" style="font-size: 10px;">对称</a> <a href="/tags/库/" style="font-size: 10px;">库</a> <a href="/tags/快捷方式/" style="font-size: 10px;">快捷方式</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/截屏/" style="font-size: 10px;">截屏</a> <a href="/tags/批量/" style="font-size: 10px;">批量</a> <a href="/tags/显示隐藏/" style="font-size: 10px;">显示隐藏</a> <a href="/tags/更改icon/" style="font-size: 10px;">更改icon</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/模版/" style="font-size: 10px;">模版</a> <a href="/tags/注释头/" style="font-size: 10px;">注释头</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/滚动条/" style="font-size: 10px;">滚动条</a> <a href="/tags/监听/" style="font-size: 10px;">监听</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/签名/" style="font-size: 10px;">签名</a> <a href="/tags/系统开发/" style="font-size: 10px;">系统开发</a> <a href="/tags/编码转换/" style="font-size: 10px;">编码转换</a> <a href="/tags/自定义/" style="font-size: 10px;">自定义</a> <a href="/tags/软键盘/" style="font-size: 10px;">软键盘</a> <a href="/tags/过滤/" style="font-size: 10px;">过滤</a> <a href="/tags/运营商定制/" style="font-size: 10px;">运营商定制</a> <a href="/tags/运行慢/" style="font-size: 10px;">运行慢</a> <a href="/tags/门字不正确/" style="font-size: 10px;">门字不正确</a> <a href="/tags/非对称/" style="font-size: 10px;">非对称</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/05/Android-in-app-billing-Clear-purchase-state-of-sku-android-test-purchased/">Android in-app billing: Clear purchase state of sku android.test.purchased</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/05/Hexo-YAMLException/">Hexo YAMLException</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/29/Upload-apk-to-Google-Play-Console/">Upload apk to Google Play Console</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/27/Raspberrypi-auto-update-ip-to-github/">Raspberrypi auto update ip to github</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/26/svn回退版本-取消修改/">svn回退版本/取消修改</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Xlee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

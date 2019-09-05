@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>SVN常用命令集合 | Xlee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SVN常用命令集合">
+<meta name="keywords" content="svn,命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVN常用命令集合">
+<meta property="og:url" content="https//xlee00.github.io/2019/01/07/SVN常用命令集合/index.html">
+<meta property="og:site_name" content="Xlee">
+<meta property="og:description" content="SVN常用命令集合">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-29T08:36:56.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVN常用命令集合">
+<meta name="twitter:description" content="SVN常用命令集合">
+  
+    <link rel="alternate" href="/atom.xml" title="Xlee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Xlee</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">与世界分享你的知识、经验和见解</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https//xlee00.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SVN常用命令集合" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/07/SVN常用命令集合/" class="article-date">
+  <time datetime="2019-01-07T06:51:23.000Z" itemprop="datePublished">2019-01-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/科技/">科技</a>►<a class="article-category-link" href="/categories/科技/svn/">svn</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SVN常用命令集合
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SVN常用命令集合</p>
+<a id="more"></a>
+
+<h3 id="1、将文件checkout到本地目录"><a href="#1、将文件checkout到本地目录" class="headerlink" title="1、将文件checkout到本地目录"></a>1、将文件checkout到本地目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn checkout path <span class="comment">#(path是服务器上的目录)</span></span><br><span class="line">例如: svn checkout svn://192.168.1.1/pro/domain</span><br><span class="line">简写：svn co</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、往版本库中添加新的文件"><a href="#2、往版本库中添加新的文件" class="headerlink" title="2、往版本库中添加新的文件"></a>2、往版本库中添加新的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn add file</span><br><span class="line">例如: svn add test.php <span class="comment">#(添加test.php)</span></span><br><span class="line">svn add *.php <span class="comment">#(添加当前目录下所有的php文件)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、将改动的文件提交到版本库"><a href="#3、将改动的文件提交到版本库" class="headerlink" title="3、将改动的文件提交到版本库"></a>3、将改动的文件提交到版本库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn commit -m <span class="string">"LogMessage"</span> [-N] [--no-unlock] PATH <span class="comment">#(如果选择了保持锁，就使用–no-unlock开关)</span></span><br><span class="line">例如： svn commit -m “add <span class="built_in">test</span> file <span class="keyword">for</span> my <span class="built_in">test</span>“ test.php</span><br><span class="line">简写： svn ci</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、加锁-解锁"><a href="#4、加锁-解锁" class="headerlink" title="4、加锁/解锁"></a>4、加锁/解锁</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn lock -m <span class="string">"LockMessage"</span> [--force] PATH</span><br><span class="line">svn lock -m <span class="string">"lock test file"</span> test.php</span><br><span class="line">svn unlock PATH</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、更新到某个版本"><a href="#5、更新到某个版本" class="headerlink" title="5、更新到某个版本"></a>5、更新到某个版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">svn update -r m path</span><br><span class="line">例如：</span><br><span class="line">	svn update <span class="comment">#如果后面没有目录，默认将当前目录以及子目录下的所有文件都更新到最新版本</span></span><br><span class="line">	svn update -r 200 test.php <span class="comment">#(将版本库中的文件test.php还原到版本200)</span></span><br><span class="line">	svn update test.php <span class="comment">#(更新，于版本库同步。如果在提交的时候提示过期的话，是因为冲突，需要先update，修改文件，然后清除svn resolved，最后再提交commit)</span></span><br><span class="line">简写：svn up</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、查看文件或者目录状态"><a href="#6、查看文件或者目录状态" class="headerlink" title="6、查看文件或者目录状态"></a>6、查看文件或者目录状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">svn status path <span class="comment">#目录下的文件和子目录的状态，正常状态不显示）</span></span><br><span class="line"><span class="comment">#【?：不在svn的控制中；M：内容被修改；C：发生冲突；A：预定加入到版本库；K：被锁定】</span></span><br><span class="line">svn status -v path <span class="comment">#(显示文件和子目录状态)</span></span><br><span class="line"><span class="comment">#第一列保持相同，第二列显示工作版本号，第三和第四列显示最后一次修改的版本号和修改人。</span></span><br><span class="line"><span class="comment">#注：svn status、svn diff和 svn revert这三条命令在没有网络的情况下也可以执行的，原因是svn在本地的.svn中保留了本地版本的原始拷贝。</span></span><br><span class="line">简写：svn st</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、删除文件"><a href="#7、删除文件" class="headerlink" title="7、删除文件"></a>7、删除文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn delete path -m “delete <span class="built_in">test</span> fle“</span><br><span class="line">例如：svn delete svn://192.168.1.1/pro/domain/test.php -m “delete <span class="built_in">test</span> file”</span><br><span class="line">或者直接svn delete test.php 然后再svn ci -m ‘delete <span class="built_in">test</span> file‘，推荐使用这种</span><br><span class="line">简写：svn (del, remove, rm)</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、查看日志"><a href="#8、查看日志" class="headerlink" title="8、查看日志"></a>8、查看日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn <span class="built_in">log</span> path</span><br><span class="line">例如：svn <span class="built_in">log</span> test.php 显示这个文件的所有修改记录，及其版本号的变化</span><br></pre></td></tr></table></figure>
+
+<h3 id="9、查看文件详细信息"><a href="#9、查看文件详细信息" class="headerlink" title="9、查看文件详细信息"></a>9、查看文件详细信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn info path</span><br><span class="line">例如：svn info test.php</span><br></pre></td></tr></table></figure>
+
+<h3 id="10、比较差异"><a href="#10、比较差异" class="headerlink" title="10、比较差异"></a>10、比较差异</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">svn diff path(将修改的文件与基础版本比较)</span><br><span class="line">例如：svn diff test.php</span><br><span class="line">svn diff -r m:n path(对版本m和版本n比较差异)</span><br><span class="line">例如：svn diff -r 200:201 test.php</span><br><span class="line">简写：svn di</span><br></pre></td></tr></table></figure>
+
+<h3 id="11、将两个版本之间的差异合并到当前文件"><a href="#11、将两个版本之间的差异合并到当前文件" class="headerlink" title="11、将两个版本之间的差异合并到当前文件"></a>11、将两个版本之间的差异合并到当前文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn merge -r m:n path</span><br><span class="line">例如：svn merge -r 200:205 test.php（将版本200与205之间的差异合并到当前文件，但是一般都会产生冲突，需要处理一下）</span><br></pre></td></tr></table></figure>
+
+<h3 id="12、SVN-帮助"><a href="#12、SVN-帮助" class="headerlink" title="12、SVN 帮助"></a>12、SVN 帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn help</span><br><span class="line">svn help ci</span><br></pre></td></tr></table></figure>
+
+<h3 id="13、版本库下的文件和目录列表"><a href="#13、版本库下的文件和目录列表" class="headerlink" title="13、版本库下的文件和目录列表"></a>13、版本库下的文件和目录列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn list path</span><br><span class="line"><span class="comment">#显示path目录下的所有属于版本库的文件和目录</span></span><br><span class="line">简写：svn ls</span><br></pre></td></tr></table></figure>
+
+<h3 id="14、创建纳入版本控制下的新目录"><a href="#14、创建纳入版本控制下的新目录" class="headerlink" title="14、创建纳入版本控制下的新目录"></a>14、创建纳入版本控制下的新目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">svn mkdir: 创建纳入版本控制下的新目录。</span><br><span class="line">用法: </span><br><span class="line">1、mkdir PATH…</span><br><span class="line">2、mkdir URL…</span><br><span class="line">创建版本控制的目录。</span><br><span class="line">1、每一个以工作副本 PATH 指定的目录，都会创建在本地端，并且加入新增</span><br><span class="line">调度，以待下一次的提交。</span><br><span class="line">2、每个以URL指定的目录，都会透过立即提交于仓库中创建。</span><br><span class="line">在这两个情况下，所有的中间目录都必须事先存在</span><br></pre></td></tr></table></figure>
+
+<h3 id="15、恢复本地修改"><a href="#15、恢复本地修改" class="headerlink" title="15、恢复本地修改"></a>15、恢复本地修改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn revert: 恢复原始未改变的工作副本文件 (恢复大部份的本地修改)。revert:</span><br><span class="line">用法: revert PATH…</span><br><span class="line">注意: 本子命令不会存取网络，并且会解除冲突的状况。但是它不会恢复</span><br><span class="line">被删除的目录</span><br></pre></td></tr></table></figure>
+
+<h3 id="16、代码库URL变更"><a href="#16、代码库URL变更" class="headerlink" title="16、代码库URL变更"></a>16、代码库URL变更</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">svn switch (sw): 更新工作副本至不同的URL。</span><br><span class="line">用法: </span><br><span class="line">1、switch URL [PATH]</span><br><span class="line">2、switch –relocate FROM TO [PATH...]</span><br><span class="line"> </span><br><span class="line">1、更新你的工作副本，映射到一个新的URL，其行为跟“svn update”很像，也会将</span><br><span class="line">服务器上文件与本地文件合并。这是将工作副本对应到同一仓库中某个分支或者标记的</span><br><span class="line">方法。</span><br><span class="line">2、改写工作副本的URL元数据，以反映单纯的URL上的改变。当仓库的根URL变动</span><br><span class="line">(比如方案名或是主机名称变动)，但是工作副本仍旧对映到同一仓库的同一目录时使用</span><br><span class="line">这个命令更新工作副本与仓库的对应关系。</span><br></pre></td></tr></table></figure>
+
+<h3 id="17、解决冲突"><a href="#17、解决冲突" class="headerlink" title="17、解决冲突"></a>17、解决冲突</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn resolved: 移除工作副本的目录或文件的“冲突”状态。</span><br><span class="line">用法: resolved PATH…</span><br><span class="line">注意: 本子命令不会依语法来解决冲突或是移除冲突标记；它只是移除冲突的相关文件，然后让 PATH 可以再次提交</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看修改的文件记录"><a href="#查看修改的文件记录" class="headerlink" title="查看修改的文件记录"></a>查看修改的文件记录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">svn cat -- 显示特定版本的某文件内容。</span><br><span class="line"></span><br><span class="line">svn list -- 显示一个目录或某一版本存在的文件列表。</span><br><span class="line"></span><br><span class="line">svn <span class="built_in">log</span> -- 显示svn 的版本<span class="built_in">log</span>，含作者、日期、路径等。</span><br><span class="line"></span><br><span class="line">svn diff -- 显示特定修改的行级详细信息。</span><br></pre></td></tr></table></figure>
+
+<h4 id="list示例："><a href="#list示例：" class="headerlink" title="list示例："></a>list示例：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn list http://svn.test.com/svn     <span class="comment">#查看目录中的文件。</span></span><br><span class="line">svn list -v http://svn.test.com/svn  <span class="comment">#查看详细的目录的信息(修订人,版本号,文件大小等)。</span></span><br><span class="line">svn list [-v]                        <span class="comment">#查看当前当前工作拷贝的版本库URL。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="cat示例："><a href="#cat示例：" class="headerlink" title="cat示例："></a>cat示例：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn cat -r 4 test.c     <span class="comment">#查看版本4中的文件test.c的内容,不进行比较。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="diff示例："><a href="#diff示例：" class="headerlink" title="diff示例："></a>diff示例：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">svn diff               <span class="comment">#什么都不加，会坚持本地代码和缓存在本地.svn目录下的信息的不同;信息太多，没啥用处。</span></span><br><span class="line">svn diff -r 3          <span class="comment">#比较你的本地代码和版本号为3的所有文件的不同。</span></span><br><span class="line">svn diff -r 3 text.c   <span class="comment">#比较你的本地代码和版本号为3的text.c文件的不同。</span></span><br><span class="line">svn diff -r 5:6        <span class="comment">#比较版本5和版本6之间所有文件的不同。</span></span><br><span class="line">svn diff -r 5:6 text.c <span class="comment">#比较版本5和版本6之间的text.c文件的变化。</span></span><br><span class="line">svn diff -c 6 test.c    <span class="comment">#比较版本5和版本6之间的text.c文件的变化。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="log示例："><a href="#log示例：" class="headerlink" title="log示例："></a>log示例：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">svn <span class="built_in">log</span>         <span class="comment">#什么都不加会显示所有版本commit的日志信息:版本、作者、日期、comment。</span></span><br><span class="line">svn <span class="built_in">log</span> -r 4:20 <span class="comment">#只看版本4到版本20的日志信息，顺序显示。</span></span><br><span class="line">svn <span class="built_in">log</span> -r 20:5 <span class="comment">#显示版本20到4之间的日志信息，逆序显示。</span></span><br><span class="line">svn <span class="built_in">log</span> test.c  <span class="comment">#查看文件test.c的日志修改信息。</span></span><br><span class="line">svn <span class="built_in">log</span> -r 8 -v <span class="comment">#显示版本8的详细修改日志，包括修改的所有文件列表信息。</span></span><br><span class="line">svn <span class="built_in">log</span> -r 8 -v -q   <span class="comment">#显示版本8的详细提交日志，不包括comment。</span></span><br><span class="line">svn <span class="built_in">log</span> -v -r 88:866 <span class="comment">#显示从版本88到版本866之间，当前代码目录下所有变更的详细信息 。</span></span><br><span class="line">svn <span class="built_in">log</span> -v dir  <span class="comment">#查看目录的日志修改信息,需要加v。</span></span><br><span class="line">svn <span class="built_in">log</span> http://foo.com/svn/trunk/code/  <span class="comment">#显示代码目录的日志信息。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="svn-diff个性化定制"><a href="#svn-diff个性化定制" class="headerlink" title="svn diff个性化定制"></a>svn diff个性化定制</h4><p>svn配置文件: <del>/.subversion/config<br>修改</del>/.subversion/config，找到如下配置行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># diff-cmd = diff_program (diff, gdiff, etc.)</span></span><br></pre></td></tr></table></figure>
+
+<p>将上面那个脚本的路径添加进去就行，修改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff-cmd = /usr/<span class="built_in">local</span>/bin/diffwrap.sh  <span class="comment">#绝对路径</span></span><br></pre></td></tr></table></figure>
+
+<p>这样svn diff命令就会默认使用vimdiff比较文件。<br>diffwrap.sh文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># for svn diff: 修改~/.subversion/config，找到如下配置行：</span></span><br><span class="line"><span class="comment"># diff-cmd = diff_program (diff, gdiff, etc.)</span></span><br><span class="line"><span class="comment"># diff-cmd = ~/bin/diffwrap.sh</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 参数大于5时，去掉前5个参数；参数小于5，失败，什么也不做</span></span><br><span class="line"><span class="built_in">shift</span> 5</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 使用vimdiff比较</span></span><br><span class="line">vimdiff <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https//xlee00.github.io/2019/01/07/SVN常用命令集合/" data-id="ck06iypwe000fxgn5rilpu2qu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/07/Git-win10-使用心得/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Git win10 使用心得
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/30/java-lang-IllegalArgumentException-Called-attach-on-a-child-which-is-not-detached-ViewHolder问题解决/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java.lang.IllegalArgumentException: Called attach on a child which is not detached: ViewHolder问题解决</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/">人文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/人文其它/">人文其它</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/">科技</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Wordpress/">Wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/svn/">svn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/其它/">其它</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/7z/" style="font-size: 10px;">7z</a> <a href="/tags/Android-TV/" style="font-size: 10px;">Android TV</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Google-billing/" style="font-size: 10px;">Google billing</a> <a href="/tags/Google-payment/" style="font-size: 10px;">Google payment</a> <a href="/tags/Gz/" style="font-size: 10px;">Gz</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/tags/OpenVPN/" style="font-size: 10px;">OpenVPN</a> <a href="/tags/Rar/" style="font-size: 10px;">Rar</a> <a href="/tags/Raspberry/" style="font-size: 15px;">Raspberry</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ScrollBar/" style="font-size: 10px;">ScrollBar</a> <a href="/tags/Scrollbar/" style="font-size: 10px;">Scrollbar</a> <a href="/tags/SparseArray/" style="font-size: 12.5px;">SparseArray</a> <a href="/tags/SparseArrayCompat/" style="font-size: 10px;">SparseArrayCompat</a> <a href="/tags/Supervisor/" style="font-size: 10px;">Supervisor</a> <a href="/tags/Tar/" style="font-size: 10px;">Tar</a> <a href="/tags/Tar-gz/" style="font-size: 10px;">Tar.gz</a> <a href="/tags/Ubuntu/" style="font-size: 20px;">Ubuntu</a> <a href="/tags/Unrar/" style="font-size: 10px;">Unrar</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/WIFI/" style="font-size: 10px;">WIFI</a> <a href="/tags/WPS/" style="font-size: 10px;">WPS</a> <a href="/tags/War/" style="font-size: 10px;">War</a> <a href="/tags/Wordpress/" style="font-size: 10px;">Wordpress</a> <a href="/tags/Xz/" style="font-size: 10px;">Xz</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/Zip/" style="font-size: 10px;">Zip</a> <a href="/tags/aar/" style="font-size: 10px;">aar</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/billing-test/" style="font-size: 10px;">billing test</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/drawable/" style="font-size: 10px;">drawable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/egrep/" style="font-size: 10px;">egrep</a> <a href="/tags/fgrep/" style="font-size: 10px;">fgrep</a> <a href="/tags/git/" style="font-size: 17.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/keystore/" style="font-size: 10px;">keystore</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/no-permission/" style="font-size: 10px;">no_permission</a> <a href="/tags/notifyItemChanged/" style="font-size: 10px;">notifyItemChanged</a> <a href="/tags/response/" style="font-size: 10px;">response</a> <a href="/tags/screenshot/" style="font-size: 10px;">screenshot</a> <a href="/tags/sspanel/" style="font-size: 10px;">sspanel</a> <a href="/tags/state/" style="font-size: 10px;">state</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/svn/" style="font-size: 12.5px;">svn</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/不对称/" style="font-size: 10px;">不对称</a> <a href="/tags/乱码/" style="font-size: 10px;">乱码</a> <a href="/tags/代码仓库/" style="font-size: 10px;">代码仓库</a> <a href="/tags/位置/" style="font-size: 10px;">位置</a> <a href="/tags/信息/" style="font-size: 10px;">信息</a> <a href="/tags/修改文件名/" style="font-size: 10px;">修改文件名</a> <a href="/tags/出栈/" style="font-size: 10px;">出栈</a> <a href="/tags/制作/" style="font-size: 10px;">制作</a> <a href="/tags/加密/" style="font-size: 12.5px;">加密</a> <a href="/tags/博客/" style="font-size: 17.5px;">博客</a> <a href="/tags/原理/" style="font-size: 12.5px;">原理</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/启动方式/" style="font-size: 10px;">启动方式</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/回退/" style="font-size: 10px;">回退</a> <a href="/tags/多个图标/" style="font-size: 10px;">多个图标</a> <a href="/tags/大小写/" style="font-size: 10px;">大小写</a> <a href="/tags/字体/" style="font-size: 10px;">字体</a> <a href="/tags/字符编码/" style="font-size: 10px;">字符编码</a> <a href="/tags/客户端/" style="font-size: 10px;">客户端</a> <a href="/tags/对称/" style="font-size: 10px;">对称</a> <a href="/tags/库/" style="font-size: 10px;">库</a> <a href="/tags/快捷方式/" style="font-size: 10px;">快捷方式</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/截屏/" style="font-size: 10px;">截屏</a> <a href="/tags/批量/" style="font-size: 10px;">批量</a> <a href="/tags/显示隐藏/" style="font-size: 10px;">显示隐藏</a> <a href="/tags/更改icon/" style="font-size: 10px;">更改icon</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/模版/" style="font-size: 10px;">模版</a> <a href="/tags/注释头/" style="font-size: 10px;">注释头</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/滚动条/" style="font-size: 10px;">滚动条</a> <a href="/tags/监听/" style="font-size: 10px;">监听</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/签名/" style="font-size: 10px;">签名</a> <a href="/tags/系统开发/" style="font-size: 10px;">系统开发</a> <a href="/tags/编码转换/" style="font-size: 10px;">编码转换</a> <a href="/tags/自定义/" style="font-size: 10px;">自定义</a> <a href="/tags/软键盘/" style="font-size: 10px;">软键盘</a> <a href="/tags/过滤/" style="font-size: 10px;">过滤</a> <a href="/tags/运营商定制/" style="font-size: 10px;">运营商定制</a> <a href="/tags/运行慢/" style="font-size: 10px;">运行慢</a> <a href="/tags/门字不正确/" style="font-size: 10px;">门字不正确</a> <a href="/tags/非对称/" style="font-size: 10px;">非对称</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/05/Android-in-app-billing-Clear-purchase-state-of-sku-android-test-purchased/">Android in-app billing: Clear purchase state of sku android.test.purchased</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/05/Hexo-YAMLException/">Hexo YAMLException</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/29/Upload-apk-to-Google-Play-Console/">Upload apk to Google Play Console</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/27/Raspberrypi-auto-update-ip-to-github/">Raspberrypi auto update ip to github</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/26/svn回退版本-取消修改/">svn回退版本/取消修改</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Xlee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
