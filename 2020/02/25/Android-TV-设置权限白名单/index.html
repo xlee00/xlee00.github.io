@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Xlee">
 <meta property="og:description" content="Android TV 设置权限白名单">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-27T03:17:20.659Z">
+<meta property="og:updated_time" content="2020-02-27T03:34:23.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android TV 设置权限白名单">
 <meta name="twitter:description" content="Android TV 设置权限白名单">
@@ -120,6 +120,7 @@
 <li><p>如果是在源码中添加，一般可以选择将权限加入到<code>/vendor/google/etc/permissions/privapp-permissions-atv.xml</code></p>
 </li>
 </ol>
+<p>AndroidQ 权限加入到 <code>Platform/vendor/google_gtvs/overlays/etc/permissions/privapp-permissions-atv.xml</code></p>
 <h2 id="查找缺少的priv-app权限"><a href="#查找缺少的priv-app权限" class="headerlink" title="查找缺少的priv-app权限"></a>查找缺少的priv-app权限</h2><p>启动新设备时，通过启用过渡日志模式来查找缺少的权限：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ro.control_privapp_permissions=log</span><br><span class="line"># 可以使用adb进行设置，或者串口设置</span><br><span class="line">adb root</span><br><span class="line">adb remount</span><br><span class="line">adb shell getprop ro.control_privapp_permissions</span><br></pre></td></tr></table></figure>
 
@@ -134,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https//xlee00.github.io/2020/02/25/Android-TV-设置权限白名单/" data-id="ck746i19z00055on5bm6afg0d" class="article-share-link">Share</a>
+      <a data-url="https//xlee00.github.io/2020/02/25/Android-TV-设置权限白名单/" data-id="ck747ad0o0004ysn5z72amhi3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/权限/">权限</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/白名单/">白名单</a></li></ul>
