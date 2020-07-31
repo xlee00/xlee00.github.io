@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>平台Launcher配置流程 | Xlee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="平台Launcher配置流程">
+<meta name="keywords" content="Launcher">
+<meta property="og:type" content="article">
+<meta property="og:title" content="平台Launcher配置流程">
+<meta property="og:url" content="https//xlee00.github.io/2020/02/28/平台Launcher配置流程/index.html">
+<meta property="og:site_name" content="Xlee">
+<meta property="og:description" content="平台Launcher配置流程">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-16T10:56:21.898Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="平台Launcher配置流程">
+<meta name="twitter:description" content="平台Launcher配置流程">
+  
+    <link rel="alternate" href="/atom.xml" title="Xlee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Xlee</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">与世界分享你的知识、经验和见解</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https//xlee00.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-平台Launcher配置流程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/28/平台Launcher配置流程/" class="article-date">
+  <time datetime="2020-02-28T01:38:42.000Z" itemprop="datePublished">2020-02-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/科技/">科技</a>►<a class="article-category-link" href="/categories/科技/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      平台Launcher配置流程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>平台Launcher配置流程</p>
+<a id="more"></a>
+
+<h2 id="烧机"><a href="#烧机" class="headerlink" title="烧机"></a>烧机</h2><p>使用：</p>
+<ol>
+<li>使用北都aml_upgrade_package_2019-12-18的镜像进行烧录</li>
+<li>盒子需要正式的数据  不能随便搞一个mac  sn  deviceId ，烧录以后修改，需要跟陈彬彬拿</li>
+<li>证书会用到Build.MODEL ，所以用什么镜像也会影响到证书，北都镜像MODEL是LINKTV01 </li>
+</ol>
+<h2 id="烧录SN-等信息"><a href="#烧录SN-等信息" class="headerlink" title="烧录SN 等信息"></a>烧录SN 等信息</h2><p>串口或者adb输入命令，设置SN</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> usid &gt; /sys/class/unifykeys/name</span><br><span class="line"><span class="built_in">echo</span> skybox0000020000212b010000001 &gt; sys/class/unifykeys/write</span><br></pre></td></tr></table></figure>
+
+<p>串口或者adb输入命令，设置deviceID</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在2020-4-16日 用did代替了deviceid</span></span><br><span class="line"><span class="built_in">echo</span> deviceid &gt; /sys/class/unifykeys/name</span><br><span class="line"><span class="built_in">echo</span> skybox0000020000212b010000001 &gt; sys/class/unifykeys/write</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> did &gt; /sys/class/unifykeys/name</span><br><span class="line"><span class="built_in">echo</span> skybox0000020000212b010000001 &gt; sys/class/unifykeys/write</span><br></pre></td></tr></table></figure>
+
+<p>重启检查是否已经将数据写入到节点中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#查看SN</span></span><br><span class="line">getprop | grep serial</span><br><span class="line">[ro.boot.serialno]: [skybox0000020000212b010000001]</span><br><span class="line">[ro.serialno]: [skybox0000020000212b010000001]</span><br><span class="line"></span><br><span class="line"><span class="comment">#龙哥推荐方法，查看deviceid</span></span><br><span class="line"><span class="built_in">echo</span> deviceid &gt; /sys/class/unifykeys/name</span><br><span class="line">cat /sys/class/unifykeys/<span class="built_in">read</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看deviceid</span></span><br><span class="line">getprop | grep deviceid</span><br><span class="line">[ro.boot.deviceid]: [skybox0000020000212b010000001]</span><br></pre></td></tr></table></figure>
+
+<h2 id="替换两个APK，何龙提供的"><a href="#替换两个APK，何龙提供的" class="headerlink" title="替换两个APK，何龙提供的"></a>替换两个APK，何龙提供的</h2><p>替换<code>SkyCertStorageService.apk</code>     原来的在<code>/system/app/SkyCertStorageService</code>下面<br>替换后清楚<code>/data/data/com.skyworthdigital.stb.cloud.certmanagerserver</code>的数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/data</span><br><span class="line">rm -rf com.skyworthdigital.stb.cloud.certmanagerserver</span><br></pre></td></tr></table></figure>
+
+<p>替换<code>SkyworthProtocolServer.apk</code> 在<code>/system/priv-app/SkyProtocolServer</code>下面<br>替换后清楚<code>/data/data/com.skyworthdigital.stb.cloud.connect.server</code>的数据</p>
+<p>如果无法读写，请手动添加权限白名单<code>etc/permissions/privapp-permissions-atv.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">privapp-permissions</span> <span class="attr">package</span>=<span class="string">"com.skyworthdigital.stb.cloud.connect.server"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">permission</span> <span class="attr">ame</span>=<span class="string">"android.permission.READ_PRIVILEGED_PHONE_STATE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">privapp-permissions</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/data</span><br><span class="line">rm -rf com.skyworthdigital.stb.cloud.connect.server</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改数据生成新的证书"><a href="#修改数据生成新的证书" class="headerlink" title="修改数据生成新的证书"></a>修改数据生成新的证书</h2><p><code>SkyCertRequest_new\SkyCertRequest\skyworthResource\inputData</code><br>中有两个文件：<code>config.xml</code> 和 <code>dataList.txt</code></p>
+<p>config.xml,例子中用的是北都的配置，平台也有设置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">model</span>&gt;</span>LINKTV01<span class="tag">&lt;/<span class="name">model</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">operatorId</span>&gt;</span>48<span class="tag">&lt;/<span class="name">operatorId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>dataList.txt,内部数据是 MAC 空格 DeviceID</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">020000212b01 skybox0000020000212b010000001</span><br><span class="line">020000282501 skybox00000200002825010000002</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置后开始生成证书"><a href="#配置后开始生成证书" class="headerlink" title="配置后开始生成证书"></a>配置后开始生成证书</h3><p>双击<code>SkyCertRequest</code>下的<code>SkyCertRequest.exe</code>生成证书</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">start to work.....</span><br><span class="line">model is:LINKTV01,operatorId is:48</span><br><span class="line">./output/CMC_CA/CMC_CA.pem is already exists, no need to request</span><br><span class="line">./output/CMS_CA/CMS_CA.pem is already exists, no need to request</span><br><span class="line">the cert file and key of skybox0000020000212b010000001 are all exists, just need to do check</span><br><span class="line">skybox0000020000212b010000001 get cert and check ok!</span><br><span class="line">the cert file and key of skybox00000200002825010000002 are all exists, just need to do check</span><br><span class="line">skybox00000200002825010000002 get cert and check ok!</span><br><span class="line">task finished success, Any key to stop..........</span><br></pre></td></tr></table></figure>
+
+<p>证书生成在<code>output</code>目录下<br>CMC开头的是公共的证书，所有盒子都一样<br>剩下的两个都是盒子的证书，每个盒子都不一样</p>
+<h2 id="使用WritCert-将证书写入盒子"><a href="#使用WritCert-将证书写入盒子" class="headerlink" title="使用WritCert 将证书写入盒子"></a>使用WritCert 将证书写入盒子</h2><ol>
+<li>把你刚才生成的证书文件直接放到WritCert代码的asset目录下（全部放入）apk根据盒子信息进行读写。</li>
+<li>这个代码 用平台的签名 </li>
+<li>不能将代码放到有中文目录的地方编译运行，否则报错</li>
+<li>这个WritCert需要用到permission com.skyworthdigital.stb.cloud.certmanagerserver.permission.CONNECT_CERT，要提供系统签名，放到<code>/system/app</code>或者<code>/system/priv-app</code>下。</li>
+<li>添加白名单<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">privapp-permissions</span> <span class="attr">package</span>=<span class="string">"com.skyworthdigital.tv.writecert"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">permission</span> <span class="attr">ame</span>=<span class="string">"android.permission.READ_PRIVILEGED_PHONE_STATE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">privapp-permissions</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#没有签名文件，推送到/system/priv-app/需要eng版本的系统软件,并且添加白名单权限（或者setenforce 0）</span></span><br><span class="line">adb root</span><br><span class="line">adb remount</span><br><span class="line">adb shell</span><br><span class="line"><span class="built_in">cd</span> /system/priv-app/</span><br><span class="line">mkdir SkyWritCert</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">adb push xxx.apk /system/priv-app/SkyWritCert/</span><br><span class="line">adb reboot</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>启动WritCert</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line">am start -n <span class="string">"com.skyworthdigital.tv.writecert/.MainActivity"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接点击前面四个写证书的按钮，返回都是成功</p>
+</li>
+<li><p>点击READCMCCERT 能够看到证书</p>
+</li>
+</ol>
+<h2 id="检查Launcher拿到数据"><a href="#检查Launcher拿到数据" class="headerlink" title="检查Launcher拿到数据"></a>检查Launcher拿到数据</h2><p>流程：</p>
+<ol>
+<li>能不能读到预置证书 </li>
+<li>拿到设备证书</li>
+<li>拿到数据<br>如果出现错误：在logcat打印中搜索“CertManager”这个tag</li>
+</ol>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><h3 id="编译Connect-server-的jar包用于Launcher"><a href="#编译Connect-server-的jar包用于Launcher" class="headerlink" title="编译Connect server 的jar包用于Launcher"></a>编译Connect server 的jar包用于Launcher</h3><p>在ConnectServer 中的manager lib中的build.gradle文件内 有一个task makeResult(type:Jar)方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">task <span class="title">makeResult</span><span class="params">(type:Jar)</span></span>&#123;</span><br><span class="line">    <span class="function">from <span class="title">zipTree</span><span class="params">(<span class="string">"build/libs/client.jar"</span>)</span></span></span><br><span class="line"><span class="function">    from <span class="title">zipTree</span><span class="params">(<span class="string">"build/libs/common.jar"</span>)</span></span></span><br><span class="line"><span class="function">    from <span class="title">zipTree</span><span class="params">(<span class="string">"build/libs/bean.jar"</span>)</span></span></span><br><span class="line"><span class="function">   <span class="comment">// from zipTree("build/libs/"+_BASENAME+".jar")</span></span></span><br><span class="line"><span class="function">    baseName </span>= _RESULT</span><br><span class="line">    destinationDir = file(_DestinationPath)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要生成connecetsever.jar包，我们需要先编译<br><code>client.jar</code>,<code>common.jar</code>,<code>bean.jar</code></p>
+<p>分别点击</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bean-&gt;Tasks-&gt;other-&gt;makeJar</span><br><span class="line">client-&gt;Tasks-&gt;other-&gt;makeJar</span><br><span class="line">common-&gt;Tasks-&gt;other-&gt;makeJar</span><br><span class="line"><span class="comment">#下面这个方法就是根据之前生成的三个jar，最后生成connectServer.jar</span></span><br><span class="line">manager-&gt;Tasks-&gt;other-&gt;makeResult</span><br></pre></td></tr></table></figure>
+
+<p>执行完以上编译任务后，在<code>manager-&gt;build-&gt;libs</code><br>可以找到<code>connectServer.jar</code>就是我们要的jar.</p>
+<h3 id="关于LauncherUI服务端"><a href="#关于LauncherUI服务端" class="headerlink" title="关于LauncherUI服务端"></a>关于LauncherUI服务端</h3><p>具体负责人：黄文艺，刘功冠<br>平台的访问URL例子：已经是旧的平台，使用旧的证书系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#在浏览器中可以访问，但是要在浏览器中添加证书，具体证书可以问黄文艺要</span><br><span class="line">https://topvcloud.hk.itvg.cn:36020/launcher-ui/box/launcher/version/info?deviceId=3705801010166172300089</span><br></pre></td></tr></table></figure>
+
+<p>项目的访问URL例子：新的云端，使用新的证书系统,增加了新的数据项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#在浏览器中可以访问，但是要在浏览器中添加证书，具体证书可以问黄文艺要</span><br><span class="line">https://topvcloud-hk.itvg.cn:30908/launcher-ui/box/launcher/version/info?deviceId=skybox0000020000212b010000001</span><br></pre></td></tr></table></figure>
+
+<p>如果没有报盘则，会拿不到数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">访问：https://topvcloud-hk.itvg.cn:30908/launcher-ui/box/launcher/version/info?deviceId=skybox0000020000212b010000001</span><br><span class="line">返回：</span><br><span class="line">&#123;&quot;data&quot;:&#123;&#125;,&quot;message&quot;:&quot;此设备无对应设备组&quot;,&quot;status&quot;:10011&#125;</span><br><span class="line">#说明这个设备没有分组，也有可能这个设备未报盘</span><br></pre></td></tr></table></figure>
+
+<h3 id="关于conncet-server"><a href="#关于conncet-server" class="headerlink" title="关于conncet server"></a>关于conncet server</h3><p>可以运行Connect server工程下的app，这是一个demo，可以用来判断Connect Server 的服务端和前端是否正常工作。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https//xlee00.github.io/2020/02/28/平台Launcher配置流程/" data-id="ckd9z1d4u003r7sn54jasf3h5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Launcher/">Launcher</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/02/准备平台系统以及Launcher/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          准备平台系统以及Launcher
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/25/Android-TV-设置权限白名单/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Android TV 设置权限白名单</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/">人文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/人文其它/">人文其它</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/">科技</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Wordpress/">Wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/svn/">svn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/其它/">其它</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/7z/" style="font-size: 10px;">7z</a> <a href="/tags/Android-TV/" style="font-size: 10px;">Android TV</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Google-billing/" style="font-size: 10px;">Google billing</a> <a href="/tags/Google-payment/" style="font-size: 10px;">Google payment</a> <a href="/tags/Gz/" style="font-size: 10px;">Gz</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/tags/Launcher/" style="font-size: 10px;">Launcher</a> <a href="/tags/OpenVPN/" style="font-size: 10px;">OpenVPN</a> <a href="/tags/Rar/" style="font-size: 10px;">Rar</a> <a href="/tags/Raspberry/" style="font-size: 14px;">Raspberry</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ScrollBar/" style="font-size: 10px;">ScrollBar</a> <a href="/tags/Scrollbar/" style="font-size: 10px;">Scrollbar</a> <a href="/tags/SparseArray/" style="font-size: 12px;">SparseArray</a> <a href="/tags/SparseArrayCompat/" style="font-size: 10px;">SparseArrayCompat</a> <a href="/tags/Supervisor/" style="font-size: 10px;">Supervisor</a> <a href="/tags/Tar/" style="font-size: 10px;">Tar</a> <a href="/tags/Tar-gz/" style="font-size: 10px;">Tar.gz</a> <a href="/tags/Ubuntu/" style="font-size: 18px;">Ubuntu</a> <a href="/tags/Unrar/" style="font-size: 10px;">Unrar</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/WIFI/" style="font-size: 10px;">WIFI</a> <a href="/tags/WPS/" style="font-size: 10px;">WPS</a> <a href="/tags/War/" style="font-size: 10px;">War</a> <a href="/tags/Wordpress/" style="font-size: 10px;">Wordpress</a> <a href="/tags/Xz/" style="font-size: 10px;">Xz</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/Zip/" style="font-size: 10px;">Zip</a> <a href="/tags/aar/" style="font-size: 10px;">aar</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 14px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/billing-test/" style="font-size: 10px;">billing test</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/cpu/" style="font-size: 10px;">cpu</a> <a href="/tags/drawable/" style="font-size: 10px;">drawable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/egrep/" style="font-size: 10px;">egrep</a> <a href="/tags/emmc/" style="font-size: 10px;">emmc</a> <a href="/tags/fgrep/" style="font-size: 10px;">fgrep</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/hardware/" style="font-size: 10px;">hardware</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/keystore/" style="font-size: 10px;">keystore</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/no-permission/" style="font-size: 10px;">no_permission</a> <a href="/tags/notifyItemChanged/" style="font-size: 10px;">notifyItemChanged</a> <a href="/tags/response/" style="font-size: 10px;">response</a> <a href="/tags/screenshot/" style="font-size: 10px;">screenshot</a> <a href="/tags/sspanel/" style="font-size: 10px;">sspanel</a> <a href="/tags/state/" style="font-size: 10px;">state</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/svn/" style="font-size: 12px;">svn</a> <a href="/tags/unpacker-error/" style="font-size: 10px;">unpacker error</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/不对称/" style="font-size: 10px;">不对称</a> <a href="/tags/乱码/" style="font-size: 10px;">乱码</a> <a href="/tags/代码仓库/" style="font-size: 10px;">代码仓库</a> <a href="/tags/位置/" style="font-size: 10px;">位置</a> <a href="/tags/信息/" style="font-size: 10px;">信息</a> <a href="/tags/修改文件名/" style="font-size: 10px;">修改文件名</a> <a href="/tags/出栈/" style="font-size: 10px;">出栈</a> <a href="/tags/制作/" style="font-size: 10px;">制作</a> <a href="/tags/加密/" style="font-size: 12px;">加密</a> <a href="/tags/博客/" style="font-size: 16px;">博客</a> <a href="/tags/原理/" style="font-size: 12px;">原理</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/启动方式/" style="font-size: 10px;">启动方式</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/回退/" style="font-size: 10px;">回退</a> <a href="/tags/多个图标/" style="font-size: 10px;">多个图标</a> <a href="/tags/大小写/" style="font-size: 10px;">大小写</a> <a href="/tags/字体/" style="font-size: 10px;">字体</a> <a href="/tags/字符编码/" style="font-size: 10px;">字符编码</a> <a href="/tags/客户端/" style="font-size: 10px;">客户端</a> <a href="/tags/对称/" style="font-size: 10px;">对称</a> <a href="/tags/库/" style="font-size: 10px;">库</a> <a href="/tags/快捷方式/" style="font-size: 10px;">快捷方式</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/截屏/" style="font-size: 10px;">截屏</a> <a href="/tags/批量/" style="font-size: 10px;">批量</a> <a href="/tags/显示隐藏/" style="font-size: 10px;">显示隐藏</a> <a href="/tags/更改icon/" style="font-size: 10px;">更改icon</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/模版/" style="font-size: 10px;">模版</a> <a href="/tags/注释头/" style="font-size: 10px;">注释头</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/滚动条/" style="font-size: 10px;">滚动条</a> <a href="/tags/白名单/" style="font-size: 10px;">白名单</a> <a href="/tags/监听/" style="font-size: 10px;">监听</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/签名/" style="font-size: 12px;">签名</a> <a href="/tags/系统开发/" style="font-size: 10px;">系统开发</a> <a href="/tags/编码转换/" style="font-size: 10px;">编码转换</a> <a href="/tags/自定义/" style="font-size: 10px;">自定义</a> <a href="/tags/软键盘/" style="font-size: 10px;">软键盘</a> <a href="/tags/过滤/" style="font-size: 10px;">过滤</a> <a href="/tags/运营商定制/" style="font-size: 10px;">运营商定制</a> <a href="/tags/运行慢/" style="font-size: 10px;">运行慢</a> <a href="/tags/门字不正确/" style="font-size: 10px;">门字不正确</a> <a href="/tags/非对称/" style="font-size: 10px;">非对称</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/31/为什么换主芯片，同时要换EMMC？/">为什么换主芯片，同时要换EMMC？</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/15/Git命令你需要知道的坑/">Git命令你需要知道的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/26/常用指令/">常用指令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/16/android如何判断两个APK签名是否一样/">android如何判断两个APK签名是否一样</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/02/准备平台系统以及Launcher/">准备平台系统以及Launcher</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Xlee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>常用指令 | Xlee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常用指令">
+<meta name="keywords" content="adb,bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用指令">
+<meta property="og:url" content="https//xlee00.github.io/2020/04/26/常用指令/index.html">
+<meta property="og:site_name" content="Xlee">
+<meta property="og:description" content="常用指令">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-29T07:59:40.175Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用指令">
+<meta name="twitter:description" content="常用指令">
+  
+    <link rel="alternate" href="/atom.xml" title="Xlee" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Xlee</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">与世界分享你的知识、经验和见解</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https//xlee00.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-常用指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/26/常用指令/" class="article-date">
+  <time datetime="2020-04-26T08:49:35.000Z" itemprop="datePublished">2020-04-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/科技/">科技</a>►<a class="article-category-link" href="/categories/科技/android/">android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用指令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>常用指令</p>
+<a id="more"></a>
+
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><ul>
+<li>cd -:返回上次目录</li>
+<li>mv out/ out_user：将out目录移动到out_user下，没有该目录可自动创建,并且会删除out目录</li>
+<li>tar zxvf  文件名.tgz -C ./：解压到当前目录</li>
+<li>tar zxvf  文件名.tgz -C ./android-p：解压到指定目录</li>
+<li>df -hl:查看磁盘空间信息</li>
+<li>rm -rf XXX :删除整个文件夹</li>
+<li>ls -al :查看文件目录详细信息，且有权限信息</li>
+<li>ls -d fileName:查看单个文件信息，后面可再接参数</li>
+<li>chmod 777 fileName：更新文件权限为最高：<a href="https://blog.csdn.net/zsx157326/article/details/78665960" target="_blank" rel="noopener">linux权限详解</a></li>
+<li>chown system:system wake_unlock:更改用户组，将后面文件改到system,system</li>
+<li>chmod a+x fileName:设置当前文件具备可执行文件权限</li>
+<li>touch traces.txt :创建文件</li>
+<li>cat traces.txt:查看文件</li>
+<li>cat list:在指定目录下查看当前存在的所有节点</li>
+<li>echo -n “” &gt; camera.ini：将文件内容清空</li>
+<li>grep -rnw “xxxx”：全局搜索携带xxx的具体文件：注意是完全匹配，区分大小写，全字匹配，必须一模一样</li>
+<li>grep -rn “wifiMesh” device/amlogic：在该目录下寻找带wifimesh字样的内容，非完全匹配，只要包含就行</li>
+<li>grep -rn “unifykey” –include “*.te”：指定文件类型进行查找</li>
+<li>pm list package -f | grep wifimesh:包含wifimesh的已安装应用包</li>
+<li>find . -name “<em>wifimesh</em>“:在当前目录下查找包含wifimesh的内容</li>
+<li>find /data/app -name “<em>wifimesh</em>“: 在指定目录下查找</li>
+<li>dumpsys activity | grep -i run:查看当前机器正在运行的activity</li>
+<li>dumpsys window windows | grep mCurrentFocus ：查看最上一层Activity,只显示最上层窗口信息</li>
+<li>dumpsys power | grep -i wake：查看当前持有带wake的power锁一共有多少</li>
+<li>settings list global | grep “OTG”：查看settings数据库</li>
+<li>settings list secure | grep “saver”：查看settings的secure数据库</li>
+<li>settings put secure sleep_timeout 100000:更改settings secure数据库</li>
+<li>service list | grep hello：查看后台service数量，只会列出系统service</li>
+<li>ln -sf 源文件 目标文件 ：更改软链接的实际链接文件，源文件为实际文件，目标文件为软链接文件：</li>
+<li>ln -sf TVController_V2.3.6.4.apk Nes_Ir_Control.apk：将后者指向前面那个具体的文件</li>
+<li>logcat -b main -b system -b kernel ：打印kernel日志</li>
+</ul>
+<h4 id="读取节点信息-跟系统属性："><a href="#读取节点信息-跟系统属性：" class="headerlink" title="读取节点信息!!!跟系统属性："></a>读取节点信息!!!跟系统属性：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /sys/class/unifykeys/  </span><br><span class="line"><span class="built_in">echo</span> skywaykey &gt; name&lt;br&gt;cat <span class="built_in">read</span></span><br><span class="line"><span class="built_in">echo</span> skywaykey &gt; write:读取</span><br></pre></td></tr></table></figure>
+
+<p>读取节点列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat sys/class/unifykeys列表/list</span><br></pre></td></tr></table></figure>
+
+<h4 id="读取系统属性，及系统属性的意义："><a href="#读取系统属性，及系统属性的意义：" class="headerlink" title="读取系统属性，及系统属性的意义："></a>读取系统属性，及系统属性的意义：</h4><ul>
+<li>persist.sys.audio_output.mode=2：前面带persist的属性，代表只是首次进入系统的时候读取的预制值</li>
+<li>ro.use.nes.skyway:这种前面以ro开头的属性是没法在代码里更改的</li>
+<li>sys.nes.allow.global.keyevent:这种值是在本次有效，但是开完机之后就会恢复最原先的值</li>
+<li>adb shell setprop persist.sys.nes.print.log 1：设置机器日志打印的属性</li>
+<li>getprop:列出所有的系统属性</li>
+<li>adb shell getprop persist.sys.nes.print.log</li>
+<li>adb shell getprop | grep print.log </li>
+</ul>
+<p>读取属性的正确方式是这样，因为看build.prop有些参数例如persist开头的表示的可能不是当前的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getprop | grep audio_output:获取带audio_output 字样的系统属性</span><br></pre></td></tr></table></figure>
+
+<h5 id="从storage路径文件写节点信息"><a href="#从storage路径文件写节点信息" class="headerlink" title="从storage路径文件写节点信息"></a>从storage路径文件写节点信息</h5><ul>
+<li><p><code>&gt; echo 1 &gt; attach</code></p>
+</li>
+<li><p><code>&gt; echo key_name &gt; name</code></p>
+</li>
+<li><p><code>cat /storage/emulated/0/.priv &gt; write:将文件中的内容直接写进去</code></p>
+</li>
+<li><p><code>&gt; echo keyValue &gt; write ：将string内容写进去</code></p>
+</li>
+<li><p><code>&gt; cat read :读取</code></p>
+</li>
+<li><p><code>&gt; traces.txt:清空问价</code></p>
+</li>
+<li><p>mv XXX XXX :将前者命令为后者</p>
+</li>
+<li><p>mv atv_secqre.apk atv_secqre:将当前目录下的.apk文件移动到文件夹atv_secqre</p>
+</li>
+<li><p>./ device.manage：启动该进程</p>
+</li>
+<li><p>du -sk filename 查看指定文件大小</p>
+</li>
+<li><p>pm list package -f:查看所有的包名</p>
+</li>
+<li><p>pm path com.nes.wifimesh:查看包的路径<br><code>在串口中启动进程后，按下ctrl+c会终端进程，一般我们让进程在后台启动(./ device.manage &amp;)</code></p>
+</li>
+<li><p>cp /system/smarthome_data/manager.db /system/smarthome_data/db_hal_zb.db /data/smarthome/:拷贝前面两个文件到后面的文件夹</p>
+</li>
+<li><p>rm /data/smarthome/iot_zigbee.*:删除该目录下iot_zigbee.开头所有的内容。</p>
+</li>
+<li><p>ps ：查看当前多少进程</p>
+</li>
+<li><p>ps | grep device :查看带device名的进程(注意有些盒子需要加上busybox关键字)eg:busybox ps | grep device</p>
+</li>
+<li><p>busybox ps ：在盒子上通过这个命令看进程。ps看不到！！！ 同理，busybox ps | grep device_manage 可以查看指定名字进程信息</p>
+</li>
+<li><p>pm clear + 包名：清楚该包名的数据</p>
+</li>
+<li><p>pkill device_manage<br>kill -9 进程号</p>
+</li>
+<li><p>mv device_managee  device_manage:将前者命令为后者</p>
+</li>
+<li><p>device_manage的路径是system/bin/smarthome:</p>
+</li>
+<li><p>公版软件默认是关闭串口,这样连接的串口板只能看到kernel的log。在插上串口的情况下盒子重启，终端一出现日志就立马按下enter进入uboot，然后在命令提示行出来的情况下输入：setenv has_console true; saveenv。然后重启设备或者直接执行reset或reboot</p>
+</li>
+<li><p>在串口下拷贝文件到盒子(只能通过u盘的方式)<br><code>cp /storage/D9A0-1310/IPCamera/init_smarthome.sh /system/bin/smarthome</code></p>
+</li>
+<li><p>查看指定文件读写信息<br><code>ls system/bin/smarthome/init_smarthome.sh -l</code></p>
+</li>
+<li><p>挂载指定分区目录<br><code>mount -o remount,rw /system</code></p>
+</li>
+<li><p>去掉系统打印命令<br><code>echo 0 &gt; /proc/sys/kernel/printk\r</code></p>
+</li>
+<li><p>打开盒子telnet<br><code>busybox telnetd -l /system/bin/sh\r</code></p>
+</li>
+<li><p>获取管理员权限<br><code>su</code></p>
+</li>
+<li><p>创建一个软链接<br><code>ln –s  /var/www/test   /var/test</code></p>
+</li>
+<li><p>修改指向的新路径<br><code>ln –snf  /var/www/test1   /var/test</code></p>
+</li>
+</ul>
+<h3 id="Win"><a href="#Win" class="headerlink" title="Win"></a>Win</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\..\:代表当前目录外两层目录，linux中也适用</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="http://blog.csdn.net/aa4790139/article/details/8584931" target="_blank" rel="noopener">linux信号机制问题</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2011-11/47807.htm" target="_blank" rel="noopener">同上</a></li>
+<li><h4 id="adb-相关"><a href="#adb-相关" class="headerlink" title="adb 相关"></a>adb 相关</h4><h5 id="快速进入烧鸡以及fastboot模式"><a href="#快速进入烧鸡以及fastboot模式" class="headerlink" title="快速进入烧鸡以及fastboot模式"></a>快速进入烧鸡以及fastboot模式</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在fastboot模式下，所有指令前都需要替换成fastboot。例如：adb reboot 对应的指令应该是fastboot reboot</span><br><span class="line">adb reboot update:进入烧鸡模式</span><br><span class="line">adb reboot fastboot：进入fastboot模式,处于安全考虑，fastboot有一个安全机制，需要进行解锁才可以进行烧录system分区</span><br><span class="line">* fastboot flashing unlock_critical</span><br><span class="line">* fastboot flashing unlock</span><br><span class="line">* fastboot flash system +对应system.img路径：烧录对应的system.img包</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="Android相关"><a href="#Android相关" class="headerlink" title="Android相关"></a>Android相关</h5><p>查看当前安装的apk 列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm list package -f |grep cert</span><br></pre></td></tr></table></figure>
+
+<p>查看常用节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l sys/class/unifykeynods/</span><br></pre></td></tr></table></figure>
+
+<p>查看具体节点的值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> deviceid &gt; /sys/class/unifykeys/name</span><br><span class="line">cat /sys/class/unifykeys/<span class="built_in">read</span></span><br></pre></td></tr></table></figure>
+
+<p>截图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screencap -p /sdcard/screenshot.png</span><br></pre></td></tr></table></figure>
+
+<p>关闭SELinux<br>重启盒子一直按enter进入boot模式，然后依次输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setenv EnableSelinux permissive</span><br><span class="line">save</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
+
+<h4 id="dumpsys"><a href="#dumpsys" class="headerlink" title="dumpsys"></a>dumpsys</h4><p>查看当前运行的activity</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpsys activity activities | sed -En -e &apos;/Running activities/,/Run #0/p&apos;</span><br></pre></td></tr></table></figure>
+
+<h4 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h4><ul>
+<li>insmod、lsmod、rmmod</li>
+</ul>
+<h4 id="Android系统常识："><a href="#Android系统常识：" class="headerlink" title="Android系统常识："></a>Android系统常识：</h4><ul>
+<li>恢复出厂一般不会擦除odm跟vendor还是system分区，如果我们要在擦除之前更新apk，可以直接替换系统预装的应用apk，注意一定要保持名字一样。</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https//xlee00.github.io/2020/04/26/常用指令/" data-id="ckd9z1d4o003j7sn5abh751kx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/">adb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/15/Git命令你需要知道的坑/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Git命令你需要知道的坑
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/16/android如何判断两个APK签名是否一样/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">android如何判断两个APK签名是否一样</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/">人文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/人文其它/">人文其它</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/">科技</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Wordpress/">Wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/android/">android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/svn/">svn</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/其它/">其它</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/7z/" style="font-size: 10px;">7z</a> <a href="/tags/Android-TV/" style="font-size: 10px;">Android TV</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Google-billing/" style="font-size: 10px;">Google billing</a> <a href="/tags/Google-payment/" style="font-size: 10px;">Google payment</a> <a href="/tags/Gz/" style="font-size: 10px;">Gz</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/tags/Launcher/" style="font-size: 10px;">Launcher</a> <a href="/tags/OpenVPN/" style="font-size: 10px;">OpenVPN</a> <a href="/tags/Rar/" style="font-size: 10px;">Rar</a> <a href="/tags/Raspberry/" style="font-size: 14px;">Raspberry</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ScrollBar/" style="font-size: 10px;">ScrollBar</a> <a href="/tags/Scrollbar/" style="font-size: 10px;">Scrollbar</a> <a href="/tags/SparseArray/" style="font-size: 12px;">SparseArray</a> <a href="/tags/SparseArrayCompat/" style="font-size: 10px;">SparseArrayCompat</a> <a href="/tags/Supervisor/" style="font-size: 10px;">Supervisor</a> <a href="/tags/Tar/" style="font-size: 10px;">Tar</a> <a href="/tags/Tar-gz/" style="font-size: 10px;">Tar.gz</a> <a href="/tags/Ubuntu/" style="font-size: 18px;">Ubuntu</a> <a href="/tags/Unrar/" style="font-size: 10px;">Unrar</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/WIFI/" style="font-size: 10px;">WIFI</a> <a href="/tags/WPS/" style="font-size: 10px;">WPS</a> <a href="/tags/War/" style="font-size: 10px;">War</a> <a href="/tags/Wordpress/" style="font-size: 10px;">Wordpress</a> <a href="/tags/Xz/" style="font-size: 10px;">Xz</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/Zip/" style="font-size: 10px;">Zip</a> <a href="/tags/aar/" style="font-size: 10px;">aar</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 14px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/billing-test/" style="font-size: 10px;">billing test</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/cpu/" style="font-size: 10px;">cpu</a> <a href="/tags/drawable/" style="font-size: 10px;">drawable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/egrep/" style="font-size: 10px;">egrep</a> <a href="/tags/emmc/" style="font-size: 10px;">emmc</a> <a href="/tags/fgrep/" style="font-size: 10px;">fgrep</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gitignore/" style="font-size: 10px;">gitignore</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/hardware/" style="font-size: 10px;">hardware</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/keystore/" style="font-size: 10px;">keystore</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/no-permission/" style="font-size: 10px;">no_permission</a> <a href="/tags/notifyItemChanged/" style="font-size: 10px;">notifyItemChanged</a> <a href="/tags/response/" style="font-size: 10px;">response</a> <a href="/tags/screenshot/" style="font-size: 10px;">screenshot</a> <a href="/tags/sspanel/" style="font-size: 10px;">sspanel</a> <a href="/tags/state/" style="font-size: 10px;">state</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/svn/" style="font-size: 12px;">svn</a> <a href="/tags/unpacker-error/" style="font-size: 10px;">unpacker error</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/不对称/" style="font-size: 10px;">不对称</a> <a href="/tags/乱码/" style="font-size: 10px;">乱码</a> <a href="/tags/代码仓库/" style="font-size: 10px;">代码仓库</a> <a href="/tags/位置/" style="font-size: 10px;">位置</a> <a href="/tags/信息/" style="font-size: 10px;">信息</a> <a href="/tags/修改文件名/" style="font-size: 10px;">修改文件名</a> <a href="/tags/出栈/" style="font-size: 10px;">出栈</a> <a href="/tags/制作/" style="font-size: 10px;">制作</a> <a href="/tags/加密/" style="font-size: 12px;">加密</a> <a href="/tags/博客/" style="font-size: 16px;">博客</a> <a href="/tags/原理/" style="font-size: 12px;">原理</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/启动方式/" style="font-size: 10px;">启动方式</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/回退/" style="font-size: 10px;">回退</a> <a href="/tags/多个图标/" style="font-size: 10px;">多个图标</a> <a href="/tags/大小写/" style="font-size: 10px;">大小写</a> <a href="/tags/字体/" style="font-size: 10px;">字体</a> <a href="/tags/字符编码/" style="font-size: 10px;">字符编码</a> <a href="/tags/客户端/" style="font-size: 10px;">客户端</a> <a href="/tags/对称/" style="font-size: 10px;">对称</a> <a href="/tags/库/" style="font-size: 10px;">库</a> <a href="/tags/快捷方式/" style="font-size: 10px;">快捷方式</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/截屏/" style="font-size: 10px;">截屏</a> <a href="/tags/批量/" style="font-size: 10px;">批量</a> <a href="/tags/显示隐藏/" style="font-size: 10px;">显示隐藏</a> <a href="/tags/更改icon/" style="font-size: 10px;">更改icon</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/模版/" style="font-size: 10px;">模版</a> <a href="/tags/注释头/" style="font-size: 10px;">注释头</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/滚动条/" style="font-size: 10px;">滚动条</a> <a href="/tags/白名单/" style="font-size: 10px;">白名单</a> <a href="/tags/监听/" style="font-size: 10px;">监听</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/签名/" style="font-size: 12px;">签名</a> <a href="/tags/系统开发/" style="font-size: 10px;">系统开发</a> <a href="/tags/编码转换/" style="font-size: 10px;">编码转换</a> <a href="/tags/自定义/" style="font-size: 10px;">自定义</a> <a href="/tags/软键盘/" style="font-size: 10px;">软键盘</a> <a href="/tags/过滤/" style="font-size: 10px;">过滤</a> <a href="/tags/运营商定制/" style="font-size: 10px;">运营商定制</a> <a href="/tags/运行慢/" style="font-size: 10px;">运行慢</a> <a href="/tags/门字不正确/" style="font-size: 10px;">门字不正确</a> <a href="/tags/非对称/" style="font-size: 10px;">非对称</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/31/为什么换主芯片，同时要换EMMC？/">为什么换主芯片，同时要换EMMC？</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/15/Git命令你需要知道的坑/">Git命令你需要知道的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/26/常用指令/">常用指令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/16/android如何判断两个APK签名是否一样/">android如何判断两个APK签名是否一样</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/02/准备平台系统以及Launcher/">准备平台系统以及Launcher</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Xlee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
