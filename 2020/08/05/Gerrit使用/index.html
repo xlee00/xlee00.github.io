@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  <title>Gerrit使用 | Xlee</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Gerrit code review使用方法">
+<meta name="keywords" content="Code review,Gerrit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gerrit使用">
+<meta property="og:url" content="https//xlee00.github.io/2020/08/05/Gerrit使用/index.html">
+<meta property="og:site_name" content="Xlee">
+<meta property="og:description" content="Gerrit code review使用方法">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/addemail.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/add_ssh_key.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/respositories.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/downloadTest.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/review_flow.jpg">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/review_page1.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/merge_reviews.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/review_page2.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/code_review_submit.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/review_result.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/remove_no_use_merge.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/merge_comit_verified.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/submit_merged_commit.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/change31_merge_conflict.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/change31_abandon.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/change31_restore.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/change31_resotred1.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/change31_active.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/change31_merged.png">
+<meta property="og:image" content="/2020/08/05/Gerrit使用/gerrit_code_review_flow.png">
+<meta property="og:updated_time" content="2020-08-21T06:15:40.056Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gerrit使用">
+<meta name="twitter:description" content="Gerrit code review使用方法">
+<meta name="twitter:image" content="/2020/08/05/Gerrit使用/addemail.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Xlee">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Xlee</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">与世界分享你的知识、经验和见解</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https//xlee00.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Gerrit使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/05/Gerrit使用/" class="article-date">
+  <time class="dt-published" datetime="2020-08-05T07:53:20.000Z" itemprop="datePublished">2020-08-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/科技/">科技</a>►<a class="article-category-link" href="/categories/科技/Git/">Git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Gerrit使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Gerrit code review使用方法</p>
+<a id="more"></a>
+
+<h2 id="Gerrit使用"><a href="#Gerrit使用" class="headerlink" title="Gerrit使用"></a>Gerrit使用</h2><h3 id="一、开始启用"><a href="#一、开始启用" class="headerlink" title="一、开始启用"></a>一、开始启用</h3><h4 id="1-激活账户"><a href="#1-激活账户" class="headerlink" title="1. 激活账户"></a>1. 激活账户</h4><p>先登录一次网页后，再通知卢佩芬开通仓库权限。</p>
+<p>首次登录的时候会让你确认信息，可以直接点击确认。</p>
+<h4 id="2-设置email"><a href="#2-设置email" class="headerlink" title="2. 设置email"></a>2. 设置email</h4><p>刚开通的时候没有Email，需要手动添加Email<br>点击右上角 用户名-&gt;Settings -&gt;Email Addresses<br>填写Email以后点击Send verification，收到邮箱后点击邮箱中激活email的连接，完成激活以后刷新浏览器就可以看到email了。<br><img src="/2020/08/05/Gerrit使用/addemail.png" alt="addemail"></p>
+<h4 id="3-设置git-email和用户名，并生成SSH-key"><a href="#3-设置git-email和用户名，并生成SSH-key" class="headerlink" title="3. 设置git email和用户名，并生成SSH key"></a>3. 设置git email和用户名，并生成SSH key</h4><p>在服务器 shell或git bash 中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置email</span></span><br><span class="line">git config --global user.email &lt;your_name&gt;@skyworth.com</span><br><span class="line"><span class="comment">#设置用户名</span></span><br><span class="line">git config --global user.name &lt;your_name&gt;</span><br><span class="line"><span class="comment">#生成ssh key</span></span><br><span class="line">ssh-keygen -t rsa <span class="comment">#输入三次回车</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#打开id_rsa.pub文件，并复制到粘贴板中</span></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-添加SSH-key到Gerrit中"><a href="#4-添加SSH-key到Gerrit中" class="headerlink" title="4. 添加SSH key到Gerrit中"></a>4. 添加SSH key到Gerrit中</h4><p>在Gerrit的网页中点击右上角 用户名-&gt;Settings -&gt;SSH keys<br>在New SSH key 栏目中填写刚才拷贝的数据，并点击Add new SSH key<br><img src="/2020/08/05/Gerrit使用/add_ssh_key.png" alt="add_ssh_key"></p>
+<h4 id="5-下载仓库"><a href="#5-下载仓库" class="headerlink" title="5. 下载仓库"></a>5. 下载仓库</h4><p>顶部导航朗 -&gt; Browse -&gt; Repositories -&gt; 具体的仓库<br><img src="/2020/08/05/Gerrit使用/respositories.png" alt="respositories"><br>这里以test为例子：<br>进入test仓库以后，点击Download中的ssh，将命令（Clone with commit-msg hook）拷贝到编译服务器shell中或windows 下的git bash中<br><img src="/2020/08/05/Gerrit使用/downloadTest.png" alt="respositories"></p>
+<h5 id="开始下载仓库："><a href="#开始下载仓库：" class="headerlink" title="开始下载仓库："></a>开始下载仓库：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sdt14777@sky1750:~$ git <span class="built_in">clone</span> <span class="string">"ssh://lizhihua@192.168.8.175:29418/test"</span> &amp;&amp; scp -p -P 29418 lizhihua@192.168.8.175:hooks/commit-msg <span class="string">"test/.git/hooks/"</span></span><br><span class="line"></span><br><span class="line">Cloning into <span class="string">'test'</span>...</span><br><span class="line">The authenticity of host <span class="string">'[192.168.8.175]:29418 ([192.168.8.175]:29418)'</span> can<span class="string">'t be established.</span></span><br><span class="line"><span class="string">ECDSA key fingerprint is 57:20:2c:75:85:47:bb:60:df:93:7e:d3:81:87:d8:24.</span></span><br><span class="line"><span class="string">Are you sure you want to continue connecting (yes/no)? yes</span></span><br><span class="line"><span class="string">Warning: Permanently added '</span>[192.168.8.175]:29418<span class="string">' (ECDSA) to the list of known hosts.</span></span><br><span class="line"><span class="string">remote: Counting objects: 2, done</span></span><br><span class="line"><span class="string">remote: Finding sources: 100% (2/2)</span></span><br><span class="line"><span class="string">remote: Total 2 (delta 0), reused 0 (delta 0)</span></span><br><span class="line"><span class="string">Receiving objects: 100% (2/2), done.</span></span><br><span class="line"><span class="string">commit-msg</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-进入源代码目录，切换到dev分支"><a href="#6-进入源代码目录，切换到dev分支" class="headerlink" title="6. 进入源代码目录，切换到dev分支"></a>6. 进入源代码目录，切换到dev分支</h4><p>由于test仓库是空仓库，我下面以一个平台的源码仓库为例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果平台源码，切换到dev（平台代码）分支，如果是处理项目，则切换到具体的项目分支</span></span><br><span class="line">git checkout dev</span><br><span class="line"><span class="comment">#可以查看所有分支</span></span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、开始干活"><a href="#二、开始干活" class="headerlink" title="二、开始干活"></a>二、开始干活</h3><p>如果修改错了，还没有执行git命令，可以这样重来:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 恢复某个文件，或者目录</span></span><br><span class="line">git checkout &lt;文件/目录&gt;</span><br><span class="line"><span class="comment">### 也可以恢复到刚刚下载时的代码。</span></span><br><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-修改代码后的上传"><a href="#1-修改代码后的上传" class="headerlink" title="1. 修改代码后的上传"></a>1. 修改代码后的上传</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#把修改的文件加入要提交的范围（无论是新增文件还是只修改了文件，都要add， 这个与svn不一样）</span></span><br><span class="line">git add &lt;文件/目录&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">##如果不小心add错误了文件，以这个命令取消add</span></span><br><span class="line">git reset &lt;文件/目录&gt;</span><br><span class="line">以上步骤，都可以用git status来查看状态。</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-提交修改"><a href="#2-提交修改" class="headerlink" title="2.  提交修改"></a>2.  提交修改</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"提交日志"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-上传修改内容"><a href="#3-上传修改内容" class="headerlink" title="3. 上传修改内容"></a>3. 上传修改内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">git push origin HEAD:refs/<span class="keyword">for</span>/&lt;branch&gt; <span class="comment">#根据具体正在操作的branch进行输入，我这边使用master</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#以master为例子</span></span><br><span class="line">sdt14777@sky1750:~/<span class="built_in">test</span>$ git push origin HEAD:refs/<span class="keyword">for</span>/master</span><br><span class="line">Enumerating objects: 5, <span class="keyword">done</span>.</span><br><span class="line">Counting objects: 100% (5/5), <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 32 threads</span><br><span class="line">Compressing objects: 100% (3/3), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (3/3), 435 bytes | 435.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">remote: Processing changes: refs: 1, new: 1, <span class="keyword">done</span></span><br><span class="line">remote:</span><br><span class="line">remote: SUCCESS</span><br><span class="line">remote:</span><br><span class="line">remote:   http://192.168.8.175/c/<span class="built_in">test</span>/+/43 Update ReadMe.md [NEW]</span><br><span class="line">remote:</span><br><span class="line">To ssh://192.168.8.175:29418/<span class="built_in">test</span></span><br><span class="line"> * [new branch]      HEAD -&gt; refs/<span class="keyword">for</span>/master</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、本地更新代码并提交内容"><a href="#三、本地更新代码并提交内容" class="headerlink" title="三、本地更新代码并提交内容"></a>三、本地更新代码并提交内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="comment">#确认本地commit 的内容全部上传到Gerrit等待Review，如果未提交则提交：git push origin HEAD:refs/for/&lt;your_branch&gt;</span></span><br><span class="line">2. git stash <span class="comment">#将工作区内容缓存到栈区</span></span><br><span class="line">3. git pull --rebase <span class="comment">#更新代码，如果出现冲突就解决冲突</span></span><br><span class="line">4. git stash pop <span class="comment">#将栈区的内容还原到工作区中，如果出现冲突就解决冲突</span></span><br><span class="line">5. git add &lt;files&gt; <span class="comment">#将需要提交的文件或者文件夹添加到暂存区</span></span><br><span class="line">6. git commit -m <span class="string">"your_message"</span> <span class="comment">#提交修改的文件并增加log</span></span><br><span class="line">7. git push origin HEAD:refs/<span class="keyword">for</span>/&lt;your_branch&gt; <span class="comment">#将commit的内容上传到服务器等待review</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="解决git-pull-–rebase产生的冲突"><a href="#解决git-pull-–rebase产生的冲突" class="headerlink" title="解决git pull –rebase产生的冲突"></a>解决git pull –rebase产生的冲突</h4><p>git pull –rebase  出现冲突</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ git pull --rebase</span><br><span class="line">remote: Counting objects: 5, <span class="keyword">done</span></span><br><span class="line">remote: Finding sources: 100% (3/3)</span><br><span class="line">remote: Total 3 (delta 1), reused 3 (delta 1)</span><br><span class="line">Unpacking objects: 100% (3/3), 406 bytes | 1024 bytes/s, <span class="keyword">done</span>.</span><br><span class="line">From ssh://192.168.8.175:29418/<span class="built_in">test</span></span><br><span class="line">   8baaa8e..78b449d  master     -&gt; origin/master</span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br><span class="line">Applying: Add change 31</span><br><span class="line">Using index info to reconstruct a base tree...</span><br><span class="line">M       ReadMe.md</span><br><span class="line">Falling back to patching base and 3-way merge...</span><br><span class="line">Auto-merging ReadMe.md</span><br><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> ReadMe.md</span><br><span class="line">error: Failed to merge <span class="keyword">in</span> the changes.</span><br><span class="line">hint: Use <span class="string">'git am --show-current-patch'</span> to see the failed patch</span><br><span class="line">Patch failed at 0001 Add change 31</span><br><span class="line">Resolve all conflicts manually, mark them as resolved with</span><br><span class="line"><span class="string">"git add/rm &lt;conflicted_files&gt;"</span>, <span class="keyword">then</span> run <span class="string">"git rebase --continue"</span>.</span><br><span class="line">You can instead skip this commit: run <span class="string">"git rebase --skip"</span>.</span><br><span class="line">To abort and get back to the state before <span class="string">"git rebase"</span>, run <span class="string">"git rebase --abort"</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git pull --rebase <span class="comment">#更新代码</span></span><br><span class="line">git status <span class="comment">#查看有哪些冲突的文件</span></span><br><span class="line">vi 冲突文件 <span class="comment">#打开文件后搜索&lt;&lt;&lt;&lt;&lt;&lt;&lt;与&gt;&gt;&gt;&gt;&gt;&gt;&gt;之间的内容，就是冲突的地方，修改冲突行，保存退出。</span></span><br><span class="line">git add 冲突文件 <span class="comment">#添加修改后的文件到缓存区</span></span><br><span class="line">git rebase --<span class="built_in">continue</span> <span class="comment">#继续rebase</span></span><br><span class="line">git <span class="built_in">log</span> <span class="comment">#如果rebase成功，表示冲突已解决，此时可以查看log</span></span><br></pre></td></tr></table></figure>
+
+<p>此时本地已经将log处理完毕。<br>如果Gerrit网页上将此次提交的review Abandon了，直接上传代码会出现 closed的提示。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin HEAD:refs/<span class="keyword">for</span>/master</span><br><span class="line">Enumerating objects: 5, <span class="keyword">done</span>.</span><br><span class="line">Counting objects: 100% (5/5), <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 8 threads</span><br><span class="line">Compressing objects: 100% (3/3), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (3/3), 432 bytes | 432.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 3 (delta 1), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (1/1)</span><br><span class="line">remote: Processing changes: refs: 1, <span class="keyword">done</span></span><br><span class="line">To ssh://192.168.8.175:29418/<span class="built_in">test</span></span><br><span class="line"> ! [remote rejected] HEAD -&gt; refs/<span class="keyword">for</span>/master (change http://192.168.8.175/c/<span class="built_in">test</span>/+/133 closed)</span><br><span class="line">error: failed to push some refs to <span class="string">'ssh://lizhihua@192.168.8.175:29418/test'</span></span><br></pre></td></tr></table></figure>
+
+<p>需要在Gerrit网页中找到此次提交，需要点击Restore恢复,此时仍然提示merge conflict，并上传代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin HEAD:refs/<span class="keyword">for</span>/master</span><br><span class="line">Enumerating objects: 5, <span class="keyword">done</span>.</span><br><span class="line">Counting objects: 100% (5/5), <span class="keyword">done</span>.</span><br><span class="line">Delta compression using up to 8 threads</span><br><span class="line">Compressing objects: 100% (3/3), <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (3/3), 432 bytes | 432.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 3 (delta 1), reused 0 (delta 0)</span><br><span class="line">remote: Resolving deltas: 100% (1/1)</span><br><span class="line">remote: Processing changes: refs: 1, updated: 1, <span class="keyword">done</span></span><br><span class="line">remote:</span><br><span class="line">remote: SUCCESS</span><br><span class="line">remote:</span><br><span class="line">remote:   http://192.168.8.175/c/<span class="built_in">test</span>/+/133 Add chnage 28</span><br><span class="line">remote:</span><br><span class="line">To ssh://192.168.8.175:29418/<span class="built_in">test</span></span><br><span class="line"> * [new branch]      HEAD -&gt; refs/<span class="keyword">for</span>/master</span><br></pre></td></tr></table></figure>
+
+<p>代码上传后merge conflict消失，可以进行review。</p>
+<h3 id="四、Review审核流程"><a href="#四、Review审核流程" class="headerlink" title="四、Review审核流程"></a>四、Review审核流程</h3><h4 id="1-总体流程："><a href="#1-总体流程：" class="headerlink" title="1. 总体流程："></a>1. 总体流程：</h4><p><img src="/2020/08/05/Gerrit使用/review_flow.jpg" alt="review_flow"></p>
+<h4 id="2-review界面如下："><a href="#2-review界面如下：" class="headerlink" title="2. review界面如下："></a>2. review界面如下：</h4><h5 id="普通的单次提交"><a href="#普通的单次提交" class="headerlink" title="普通的单次提交"></a>普通的单次提交</h5><p><img src="/2020/08/05/Gerrit使用/review_page1.png" alt="review_page1"></p>
+<h5 id="merge类型提交："><a href="#merge类型提交：" class="headerlink" title="merge类型提交："></a>merge类型提交：</h5><p><img src="/2020/08/05/Gerrit使用/merge_reviews.png" alt="merge_reviews"></p>
+<h4 id="3-执行Rebase"><a href="#3-执行Rebase" class="headerlink" title="3. 执行Rebase"></a>3. 执行Rebase</h4><p>除了merge类型的提交，其他类型提交都要执行Rebase</p>
+<p>执行Rebase的时候会出现三种情况：</p>
+<ul>
+<li>直接执行完成。</li>
+<li>执行失败，不用处理。</li>
+<li>弹出提示（提示有一个选项，两个选项和三个选项一共三种类型），直接下一步就可以。</li>
+</ul>
+<h4 id="4-开始review，点击Add-Reviewer。"><a href="#4-开始review，点击Add-Reviewer。" class="headerlink" title="4. 开始review，点击Add Reviewer。"></a>4. 开始review，点击Add Reviewer。</h4><ul>
+<li>Reviewer可以为空，CC也可以为空</li>
+<li>Code-Review:如果是普通用户只能+1分，总分要超过2分以后才能进行执行通过。否则无法通过审核。</li>
+<li>Verified（普通用户没有这个选项）：通过审核，前提是Code-Review的总分超过2分，然后才能进行Verified。</li>
+</ul>
+<p><img src="/2020/08/05/Gerrit使用/review_page2.png" alt="review_page2"></p>
+<p>当Verified获得1分以上的时候，主页面就会出现Submit（普通用户没有这个选项）<br>此时点击Submit：代码就会进入到仓库中，所有用户可以用git pull获得此更新。<br><img src="/2020/08/05/Gerrit使用/code_review_submit.png" alt="code_review_submit"></p>
+<h4 id="5-查看审核结果"><a href="#5-查看审核结果" class="headerlink" title="5.  查看审核结果"></a>5.  查看审核结果</h4><p>可以在主页中查看所有提交的review 状态<br>Merged的就是已经成功提交<br>其他状态说明没哟提交成功，需要根据实际情况处理<br><img src="/2020/08/05/Gerrit使用/review_result.png" alt="review_result"></p>
+<h3 id="五、Review的特殊处理"><a href="#五、Review的特殊处理" class="headerlink" title="五、Review的特殊处理"></a>五、Review的特殊处理</h3><h4 id="1-不必要的Merge提交"><a href="#1-不必要的Merge提交" class="headerlink" title="1. 不必要的Merge提交"></a>1. 不必要的Merge提交</h4><h5 id="解决流程"><a href="#解决流程" class="headerlink" title="解决流程"></a>解决流程</h5><ul>
+<li>发现不必要的Merge提交-&gt;打回不必要的Merge提交-&gt;按正常流程review Related chain中的所有提交-&gt;review 完成-&gt;本地按照更新流程更新代码</li>
+</ul>
+<p><img src="/2020/08/05/Gerrit使用/remove_no_use_merge.png" alt="remove_no_use_merge"></p>
+<p>本地更新代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git pull --rebase</span><br><span class="line">remote: Counting objects: 5, <span class="keyword">done</span></span><br><span class="line">remote: Finding sources: 100% (3/3)</span><br><span class="line">remote: Total 3 (delta 2), reused 2 (delta 2)</span><br><span class="line">Unpacking objects: 100% (3/3), 322 bytes | 2.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">From ssh://192.168.8.175:29418/<span class="built_in">test</span></span><br><span class="line">   a2a0cb6..597c3e0  master     -&gt; origin/master</span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-必要的merge类型的提交"><a href="#2-必要的merge类型的提交" class="headerlink" title="2. 必要的merge类型的提交"></a>2. 必要的merge类型的提交</h4><h5 id="review流程"><a href="#review流程" class="headerlink" title="review流程"></a>review流程</h5><ul>
+<li>普通Merge提交-&gt;Related chain中的所有非Merge提交先进行Rebase和打分达到Verified状态-&gt;review merge类型-&gt;完成-&gt;本地按照更新流程更新代码</li>
+</ul>
+<p>先给这三个相关的提交全部打分<br><img src="/2020/08/05/Gerrit使用/merge_comit_verified.png" alt="merge_comit_verified"></p>
+<p>点击Submit including parents，一次性通过三个提交<br><img src="/2020/08/05/Gerrit使用/submit_merged_commit.png" alt="submit_merged_commit"></p>
+<h4 id="三-代码评审Merge-conflict-异常"><a href="#三-代码评审Merge-conflict-异常" class="headerlink" title="三.  代码评审Merge-conflict 异常"></a>三.  代码评审Merge-conflict 异常</h4><h5 id="总体流程："><a href="#总体流程：" class="headerlink" title="总体流程："></a>总体流程：</h5><ul>
+<li><p>发现Merge-conflict-&gt;尝试Rebase-仍然Merge-conflict-Abandon-&gt;本地更新-&gt;本地解决冲突-&gt;网页restore-&gt;上传代码-&gt;重新review</p>
+</li>
+<li><p>发现Merge-conflict-&gt;尝试Rebase-&gt;没有Merge-conflict-&gt;按照正常流程review</p>
+</li>
+</ul>
+<h5 id="需要review的代码出现了conflict"><a href="#需要review的代码出现了conflict" class="headerlink" title="需要review的代码出现了conflict"></a>需要review的代码出现了conflict</h5><p><img src="/2020/08/05/Gerrit使用/change31_merge_conflict.png" alt="change31_merge_conflict"></p>
+<h5 id="1-先尝试使用Rebase是否可以解决-若仍然Merge-conflict则使用abandon打回"><a href="#1-先尝试使用Rebase是否可以解决-若仍然Merge-conflict则使用abandon打回" class="headerlink" title="1. 先尝试使用Rebase是否可以解决,若仍然Merge-conflict则使用abandon打回"></a>1. 先尝试使用Rebase是否可以解决,若仍然Merge-conflict则使用abandon打回</h5><p><img src="/2020/08/05/Gerrit使用/change31_abandon.png" alt="change31_abandon"></p>
+<h5 id="2-本地更新代码解决冲突"><a href="#2-本地更新代码解决冲突" class="headerlink" title="2. 本地更新代码解决冲突"></a>2. 本地更新代码解决冲突</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="comment">#确认本地commit 的内容（被Abandon的commit属已经上传）全部上传到Gerrit等待Review，如果未提交则提交：git push origin HEAD:refs/for/&lt;your_branch&gt;</span></span><br><span class="line">2. git stash <span class="comment">#将工作区内容缓存到栈区</span></span><br><span class="line">3. git pull --rebase <span class="comment">#更新代码，如果出现冲突就解决冲突</span></span><br><span class="line">4. git stash pop <span class="comment">#将栈区的内容还原到工作区中，如果出现冲突就解决冲突</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="3-本地更新代码解决冲突后-找到网页中的Abandon的review，点击Restore"><a href="#3-本地更新代码解决冲突后-找到网页中的Abandon的review，点击Restore" class="headerlink" title="3. 本地更新代码解决冲突后,找到网页中的Abandon的review，点击Restore"></a>3. 本地更新代码解决冲突后,找到网页中的Abandon的review，点击Restore</h5><p><img src="/2020/08/05/Gerrit使用/change31_restore.png" alt="change31_restore"><br>恢复完成，但仍然是Merge conflict<br><img src="/2020/08/05/Gerrit使用/change31_resotred1.png" alt="change31_resotred1"></p>
+<h5 id="4-本地重新提交代码"><a href="#4-本地重新提交代码" class="headerlink" title="4. 本地重新提交代码"></a>4. 本地重新提交代码</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin HEAD:refs/<span class="keyword">for</span>/&lt;your_branch&gt; <span class="comment">#将commit的内容上传到服务器等待review</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/08/05/Gerrit使用/change31_active.png" alt="change31_active"></p>
+<h5 id="5-重新进行review"><a href="#5-重新进行review" class="headerlink" title="5. 重新进行review"></a>5. 重新进行review</h5><p><img src="/2020/08/05/Gerrit使用/change31_merged.png" alt="change31_merged"></p>
+<h3 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h3><h4 id="1-创建新分支"><a href="#1-创建新分支" class="headerlink" title="1. 创建新分支"></a>1. 创建新分支</h4><p>通知卢佩芬或者具体仓库的管理员在网页后台添加分支。<br>添加分支需要提供某次commit 的Hash 或者一个分支，新分支基于此Hash或者分支创建新的分支。</p>
+<h4 id="2-超大型提交"><a href="#2-超大型提交" class="headerlink" title="2. 超大型提交"></a>2. 超大型提交</h4><p>有时候我们会新建一个sdk仓库，首次提交的时候，会有大量的文件上传。由于大量文件修改，我们无法通过原来的方式上传代码。</p>
+<p>这时候，我们需要让卢佩芬或者仓库管理员给我们开通直接上传代码不经过review的权限，进行代码上传，直接上传到服务器仓库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开通直接上传权限以后</span></span><br><span class="line">git push origin &lt;branch&gt; <span class="comment">#可以直接将代码上传到服务器仓库中，不需要review</span></span><br></pre></td></tr></table></figure>
+
+<p>代码上传完以后需要回收该权限，预防误操作。</p>
+<h3 id="六、Gerrit-仓库的工作模式"><a href="#六、Gerrit-仓库的工作模式" class="headerlink" title="六、Gerrit 仓库的工作模式"></a>六、Gerrit 仓库的工作模式</h3><p>使用Gerrit code review，我们为什么要这么做<code>git push gerrit HEAD:refs/for/master</code>而不是做<code>git push origin master</code></p>
+<p>而使用<code>git push origin master</code> 会出现错误<code>! [remote rejected] master -&gt; master (prohibited by Gerrit)</code></p>
+<h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><p>接收到一个仓库创建代码更新补丁的推送请求时，Gerrit更新数据库，然后将操作结果告知客户端。反馈一个成功的结果让客户端相信Gerrit已经创建了补丁，但实际上Gerrit根本没有在仓库中创建这个补丁。</p>
+<p>一个成功push的补丁(即，补丁已经被推到Gerrit，将其放入“挂起的更改”暂存区域。)，Gerrit 经过review后，将更改从“未决更改”保存到 代码仓库，并根据它在你推送时提供的branch合并到代码仓库相应的branch中。这样以后，用户就能从权威存储库中下载被review的代码了。</p>
+<p><img src="/2020/08/05/Gerrit使用/gerrit_code_review_flow.png" alt="gerrit_code_review_flow"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https//xlee00.github.io/2020/08/05/Gerrit使用/" data-id="ckjnv0n2s000kron51k6lusrz" data-title="Gerrit使用" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code-review/">Code review</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gerrit/">Gerrit</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/20/Three-way-merge/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Three-way merge
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/04/Android解决依赖冲突：Program-type-already-present/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Android解决依赖冲突：Program type already present</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/">人文</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/人文/人文其它/">人文其它</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/">科技</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Raspberry/">Raspberry</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Ubuntu/">Ubuntu</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/Wordpress/">Wordpress</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/科技/svn/">svn</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/7z/" style="font-size: 10px;">7z</a> <a href="/tags/ATV/" style="font-size: 12px;">ATV</a> <a href="/tags/Android-TV/" style="font-size: 10px;">Android TV</a> <a href="/tags/Code-review/" style="font-size: 10px;">Code review</a> <a href="/tags/Fragment/" style="font-size: 10px;">Fragment</a> <a href="/tags/Gerrit/" style="font-size: 10px;">Gerrit</a> <a href="/tags/Git/" style="font-size: 20px;">Git</a> <a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/Gitignore/" style="font-size: 10px;">Gitignore</a> <a href="/tags/Google-Play/" style="font-size: 10px;">Google Play</a> <a href="/tags/Google-billing/" style="font-size: 10px;">Google billing</a> <a href="/tags/Google-payment/" style="font-size: 10px;">Google payment</a> <a href="/tags/Gz/" style="font-size: 10px;">Gz</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/LFS/" style="font-size: 10px;">LFS</a> <a href="/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/tags/Launcher/" style="font-size: 14px;">Launcher</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/OpenVPN/" style="font-size: 10px;">OpenVPN</a> <a href="/tags/Rar/" style="font-size: 10px;">Rar</a> <a href="/tags/Raspberry/" style="font-size: 14px;">Raspberry</a> <a href="/tags/RecyclerView/" style="font-size: 10px;">RecyclerView</a> <a href="/tags/Response/" style="font-size: 10px;">Response</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ScrollBar/" style="font-size: 10px;">ScrollBar</a> <a href="/tags/Scrollbar/" style="font-size: 10px;">Scrollbar</a> <a href="/tags/SparseArray/" style="font-size: 12px;">SparseArray</a> <a href="/tags/SparseArrayCompat/" style="font-size: 10px;">SparseArrayCompat</a> <a href="/tags/Supervisor/" style="font-size: 10px;">Supervisor</a> <a href="/tags/Tar/" style="font-size: 10px;">Tar</a> <a href="/tags/Tar-gz/" style="font-size: 10px;">Tar.gz</a> <a href="/tags/Ubuntu/" style="font-size: 18px;">Ubuntu</a> <a href="/tags/Unpacker-error/" style="font-size: 10px;">Unpacker error</a> <a href="/tags/Unrar/" style="font-size: 10px;">Unrar</a> <a href="/tags/Vim/" style="font-size: 12px;">Vim</a> <a href="/tags/WIFI/" style="font-size: 10px;">WIFI</a> <a href="/tags/WPS/" style="font-size: 10px;">WPS</a> <a href="/tags/WSL/" style="font-size: 10px;">WSL</a> <a href="/tags/War/" style="font-size: 10px;">War</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/Wordpress/" style="font-size: 10px;">Wordpress</a> <a href="/tags/Xz/" style="font-size: 10px;">Xz</a> <a href="/tags/YAML/" style="font-size: 10px;">YAML</a> <a href="/tags/Zip/" style="font-size: 10px;">Zip</a> <a href="/tags/aar/" style="font-size: 10px;">aar</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 16px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/apply/" style="font-size: 10px;">apply</a> <a href="/tags/bash/" style="font-size: 12px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/billing-test/" style="font-size: 10px;">billing test</a> <a href="/tags/bz2/" style="font-size: 10px;">bz2</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/cpu/" style="font-size: 10px;">cpu</a> <a href="/tags/drawable/" style="font-size: 10px;">drawable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/egrep/" style="font-size: 10px;">egrep</a> <a href="/tags/emmc/" style="font-size: 10px;">emmc</a> <a href="/tags/fgrep/" style="font-size: 10px;">fgrep</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/hardware/" style="font-size: 10px;">hardware</a> <a href="/tags/import/" style="font-size: 10px;">import</a> <a href="/tags/keystore/" style="font-size: 10px;">keystore</a> <a href="/tags/merge/" style="font-size: 10px;">merge</a> <a href="/tags/monkey/" style="font-size: 10px;">monkey</a> <a href="/tags/netflix/" style="font-size: 10px;">netflix</a> <a href="/tags/no-permission/" style="font-size: 10px;">no_permission</a> <a href="/tags/notifyItemChanged/" style="font-size: 10px;">notifyItemChanged</a> <a href="/tags/screenshot/" style="font-size: 10px;">screenshot</a> <a href="/tags/sspanel/" style="font-size: 10px;">sspanel</a> <a href="/tags/state/" style="font-size: 10px;">state</a> <a href="/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/tags/svn/" style="font-size: 12px;">svn</a> <a href="/tags/tgz/" style="font-size: 10px;">tgz</a> <a href="/tags/three-way/" style="font-size: 10px;">three-way</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/不对称/" style="font-size: 10px;">不对称</a> <a href="/tags/乱码/" style="font-size: 12px;">乱码</a> <a href="/tags/代码仓库/" style="font-size: 10px;">代码仓库</a> <a href="/tags/位置/" style="font-size: 10px;">位置</a> <a href="/tags/信息/" style="font-size: 10px;">信息</a> <a href="/tags/修改文件名/" style="font-size: 10px;">修改文件名</a> <a href="/tags/出栈/" style="font-size: 10px;">出栈</a> <a href="/tags/制作/" style="font-size: 10px;">制作</a> <a href="/tags/加密/" style="font-size: 12px;">加密</a> <a href="/tags/博客/" style="font-size: 16px;">博客</a> <a href="/tags/原理/" style="font-size: 12px;">原理</a> <a href="/tags/后台/" style="font-size: 10px;">后台</a> <a href="/tags/启动/" style="font-size: 10px;">启动</a> <a href="/tags/启动方式/" style="font-size: 10px;">启动方式</a> <a href="/tags/命令/" style="font-size: 12px;">命令</a> <a href="/tags/回退/" style="font-size: 10px;">回退</a> <a href="/tags/多个图标/" style="font-size: 10px;">多个图标</a> <a href="/tags/大小写/" style="font-size: 10px;">大小写</a> <a href="/tags/字体/" style="font-size: 10px;">字体</a> <a href="/tags/字符编码/" style="font-size: 10px;">字符编码</a> <a href="/tags/客户端/" style="font-size: 10px;">客户端</a> <a href="/tags/对称/" style="font-size: 10px;">对称</a> <a href="/tags/库/" style="font-size: 10px;">库</a> <a href="/tags/开机/" style="font-size: 10px;">开机</a> <a href="/tags/快捷方式/" style="font-size: 10px;">快捷方式</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a> <a href="/tags/截屏/" style="font-size: 10px;">截屏</a> <a href="/tags/批量/" style="font-size: 10px;">批量</a> <a href="/tags/显示隐藏/" style="font-size: 10px;">显示隐藏</a> <a href="/tags/更改icon/" style="font-size: 10px;">更改icon</a> <a href="/tags/杂谈/" style="font-size: 10px;">杂谈</a> <a href="/tags/权限/" style="font-size: 10px;">权限</a> <a href="/tags/模版/" style="font-size: 10px;">模版</a> <a href="/tags/注释头/" style="font-size: 10px;">注释头</a> <a href="/tags/测试/" style="font-size: 12px;">测试</a> <a href="/tags/滚动条/" style="font-size: 10px;">滚动条</a> <a href="/tags/白名单/" style="font-size: 10px;">白名单</a> <a href="/tags/监听/" style="font-size: 10px;">监听</a> <a href="/tags/科学上网/" style="font-size: 10px;">科学上网</a> <a href="/tags/签名/" style="font-size: 14px;">签名</a> <a href="/tags/系统开发/" style="font-size: 10px;">系统开发</a> <a href="/tags/编码转换/" style="font-size: 10px;">编码转换</a> <a href="/tags/编辑器/" style="font-size: 10px;">编辑器</a> <a href="/tags/脚本/" style="font-size: 10px;">脚本</a> <a href="/tags/自定义/" style="font-size: 10px;">自定义</a> <a href="/tags/行号/" style="font-size: 10px;">行号</a> <a href="/tags/补丁/" style="font-size: 12px;">补丁</a> <a href="/tags/语言/" style="font-size: 10px;">语言</a> <a href="/tags/语言列表/" style="font-size: 10px;">语言列表</a> <a href="/tags/软键盘/" style="font-size: 10px;">软键盘</a> <a href="/tags/过滤/" style="font-size: 10px;">过滤</a> <a href="/tags/运营商定制/" style="font-size: 10px;">运营商定制</a> <a href="/tags/运行慢/" style="font-size: 12px;">运行慢</a> <a href="/tags/门字不正确/" style="font-size: 10px;">门字不正确</a> <a href="/tags/非对称/" style="font-size: 10px;">非对称</a> <a href="/tags/默认/" style="font-size: 10px;">默认</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/01/08/修改Hexo网页中引用的显示/">修改Hexo网页中引用的显示</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/08/手动下载安装WSL/">手动下载安装WSL</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/28/通过Shell脚本读取properties文件中的参数时遇到-r换行符的问题/">通过Shell脚本读取properties文件中的参数时遇到换行符的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/03/开机启动系列之Launcher启动/">开机启动系列之Launcher启动</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/24/ATV测试总结/">ATV测试总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Xlee<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
